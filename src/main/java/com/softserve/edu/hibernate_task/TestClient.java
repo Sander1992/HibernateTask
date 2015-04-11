@@ -5,6 +5,9 @@ package com.softserve.edu.hibernate_task;
  */
 import java.util.Iterator;
 import java.util.List;
+
+import com.softserve.edu.hibernate_task.entity.Employee;
+import com.softserve.edu.hibernate_task.utils.HibernateSessionFactory;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -17,7 +20,7 @@ public class TestClient {
         Session session = HibernateSessionFactory.currentSession();
         Transaction tx = session.beginTransaction();
         Integer id = (Integer) session.save(employee);
-        employee.setId(id);
+        employee.setEmpl_id(id);
         tx.commit();
         HibernateSessionFactory.closeSession();
         return employee;
@@ -27,7 +30,7 @@ public class TestClient {
         Session session = HibernateSessionFactory.currentSession();
         Transaction tx = session.beginTransaction();
         Employee dbEmploee = (Employee) session.get(Employee.class,
-                            employee.getId());
+                            employee.getEmpl_id());
         if (employee != null) {
             dbEmploee.setName(employee.getName());
             dbEmploee.setSalary(employee.getSalary());
@@ -43,7 +46,7 @@ public class TestClient {
         List<?> employees = session.createQuery("from Employee ").list();
         for (Iterator<?> iter = employees.iterator(); iter.hasNext();) {
             Employee employee = (Employee) iter.next();
-            System.out.println("Id " + employee.getId() + " Name " + employee.getName()
+            System.out.println("Id " + employee.getEmpl_id() + " Name " + employee.getName()
                     + " Sallary " + employee.getSalary() + " Position " + employee.getPosition());
         }
         tx.commit();
@@ -56,7 +59,7 @@ public class TestClient {
             employee.setSalary(5000);
             employee.setPosition("Director");
             employee = client.createEmployee(employee);
-            System.out.println("primary key is " + employee.getId());
+            System.out.println("primary key is " + employee.getEmpl_id());
             client.listEmployee();
             Employee employee1 = new Employee();
             employee1.setName("Chuck Norris");

@@ -1,4 +1,4 @@
-package com.softserve.edu.hibernate_task;
+package com.softserve.edu.hibernate_task.utils;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;

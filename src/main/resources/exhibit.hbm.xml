@@ -2,14 +2,18 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="com.softserve.edu.hibernate_task.entity.Employee" table="employee">
-        <id name="empl_id" column="empl_id" type="java.lang.Integer">
+    <class name="com.softserve.edu.hibernate_task.entity.Exhibit" table="exhibit">
+        <id name="getExhib_id" column="exhib_id" type="java.lang.Integer">
             <generator class="increment"/> </id>
         <property name="name" column="name"
                   type="java.lang.String" />
-        <property name="salary" column="salary"
+        <property name="hall_id" column="hall_id"
                   type="java.lang.Integer" />
-        <property name="position" column="position"
+        <property name="date" column="date"
+                  type="java.lang.String" />
+        <property name="material" column="material"
+                  type="java.lang.String" />
+        <property name="author" column="author"
                   type="java.lang.String" />
     </class>
 </hibernate-mapping>

@@ -1,10 +1,10 @@
-package com.softserve.edu.hibernate_task;
+package com.softserve.edu.hibernate_task.entity;
 
 /**
  * Created by Sander on 11.04.2015.
  */
 public class Employee {
-    private Integer id;
+    private Integer empl_id;
     private String name;
     private Integer salary;
     private String position;
@@ -19,12 +19,12 @@ public class Employee {
         this.position = position;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getEmpl_id() {
+        return empl_id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setEmpl_id(Integer id) {
+        this.empl_id = id;
     }
 
     public String getName() {
