@@ -17,8 +17,8 @@ public class Exhibit {
         return exhib_id;
     }
 
-    public void setExhib_id(Integer exhab_id) {
-        this.exhib_id = exhab_id;
+    public void setExhib_id(Integer exhib_id) {
+        this.exhib_id = exhib_id;
     }
 
     public String getName() {
