@@ -1,21 +1,18 @@
 package com.softserve.edu.hibernatetask.entity;
 
-/**
- * Created by Sander on 12.04.2015.
- */
 public class Hall {
-    private Integer hall_id;
+    private Integer hallId;
     private String name;
-    private String resp_id;
+    private String respId;
 
     public Hall(){}
 
-    public Integer getHall_id() {
-        return hall_id;
+    public Integer getHallId() {
+        return hallId;
     }
 
-    public void setHall_id(Integer hall_id) {
-        this.hall_id = hall_id;
+    public void setHallId(Integer hallId) {
+        this.hallId = hallId;
     }
 
     public String getName() {
@@ -26,11 +23,11 @@ public class Hall {
         this.name = name;
     }
 
-    public String getResp_id() {
-        return resp_id;
+    public String getRespId() {
+        return respId;
     }
 
-    public void setResp_id(String resp_id) {
-        this.resp_id = resp_id;
+    public void setRespId(String respId) {
+        this.respId = respId;
     }
 }

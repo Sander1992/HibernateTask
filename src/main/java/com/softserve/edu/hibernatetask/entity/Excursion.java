@@ -1,23 +1,20 @@
 package com.softserve.edu.hibernatetask.entity;
 
-/**
- * Created by Sander on 11.04.2015.
- */
 public class Excursion {
-    private Integer excur_id;
+    private Integer excurId;
     private String name;
     private String schedule;
     private String duration;
-    private Integer resp_id;
+    private Integer respId;
 
     public Excursion() {}
 
-    public Integer getExcur_id() {
-        return excur_id;
+    public Integer getExcurId() {
+        return excurId;
     }
 
-    public void setExcur_id(Integer excur_id) {
-        this.excur_id = excur_id;
+    public void setExcurId(Integer excurId) {
+        this.excurId = excurId;
     }
 
     public String getName() {
@@ -44,11 +41,11 @@ public class Excursion {
         this.duration = duration;
     }
 
-    public Integer getResp_id() {
-        return resp_id;
+    public Integer getRespId() {
+        return respId;
     }
 
-    public void setResp_id(Integer resp_id) {
-        this.resp_id = resp_id;
+    public void setRespId(Integer respId) {
+        this.respId = respId;
     }
 }

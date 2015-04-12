@@ -1,24 +1,22 @@
 package com.softserve.edu.hibernatetask.entity;
 
-/**
- * Created by Sander on 12.04.2015.
- */
 public class Exhibit {
-    private Integer exhib_id;
+    private Integer exhibitId;
     private String name;
-    private Integer hall_id;
+    private Integer hallId;
     private String date;
     private String material;
     private String author;
 
-    public Exhibit(){}
-
-    public Integer getExhib_id() {
-        return exhib_id;
+    public Exhibit() {
     }
 
-    public void setExhib_id(Integer exhib_id) {
-        this.exhib_id = exhib_id;
+    public Integer getExhibitId() {
+        return exhibitId;
+    }
+
+    public void setExhibitId(Integer exhibitId) {
+        this.exhibitId = exhibitId;
     }
 
     public String getName() {
@@ -29,12 +27,12 @@ public class Exhibit {
         this.name = name;
     }
 
-    public Integer getHall_id() {
-        return hall_id;
+    public Integer getHallId() {
+        return hallId;
     }
 
-    public void setHall_id(Integer hall_id) {
-        this.hall_id = hall_id;
+    public void setHallId(Integer hallId) {
+        this.hallId = hallId;
     }
 
     public String getDate() {
