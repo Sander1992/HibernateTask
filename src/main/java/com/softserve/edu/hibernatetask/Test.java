@@ -5,7 +5,6 @@ import com.softserve.edu.hibernatetask.dao.HallDAO;
 import com.softserve.edu.hibernatetask.dao.impl.EmployeeDataAccess;
 import com.softserve.edu.hibernatetask.dao.impl.HallDataAccess;
 import com.softserve.edu.hibernatetask.entity.Employee;
-import com.softserve.edu.hibernatetask.entity.Hall;
 
 import java.math.BigDecimal;
 
@@ -21,6 +20,8 @@ public class Test {
 //        otherHall.setRespId(3);
 //        hallDAO.insert(otherHall);
 //        hallDAO.findAll().forEach(e -> System.out.println(e.getName()));
+//        HallDAO hallDAO = new HallDataAccess();
+//        System.out.println(hallDAO.findByResponsible(5).get(0).getName());
     }
 
     private static void addEmployees() {

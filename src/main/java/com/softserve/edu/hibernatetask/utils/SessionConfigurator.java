@@ -9,8 +9,7 @@ public enum SessionConfigurator {
 
     private static SessionFactory buildSessionFactory() {
         try {
-            System.out.println("Should be only once");
-            return new Configuration().configure("/resources/hibernate.cfg.xml").buildSessionFactory();
+            return new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
         } catch (Throwable ex) {
             System.err.println("An exception while initializing occurred");
             throw new ExceptionInInitializerError(ex);

@@ -29,7 +29,7 @@ public abstract class BaseDataAccess<T> implements BaseDAO<T> {
             if (tx != null) {
                 tx.rollback();
             }
-            throw ex;
+            throw new AssertionError(ex);
         } finally {
             session.close();
         }
@@ -46,7 +46,7 @@ public abstract class BaseDataAccess<T> implements BaseDAO<T> {
             if (tx != null) {
                 tx.rollback();
             }
-            throw ex;
+            throw new AssertionError(ex);
         } finally {
             session.close();
         }
@@ -63,7 +63,7 @@ public abstract class BaseDataAccess<T> implements BaseDAO<T> {
             if (tx != null) {
                 tx.rollback();
             }
-            throw ex;
+            throw new AssertionError(ex);
         } finally {
             session.close();
         }
