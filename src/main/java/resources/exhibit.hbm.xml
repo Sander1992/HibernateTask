@@ -15,5 +15,7 @@
                   type="java.lang.String" />
         <property name="author" column="author"
                   type="java.lang.String" />
+        <property name="technic" column="technic"
+                  type="java.lang.String" />
     </class>
 </hibernate-mapping>

@@ -8,7 +8,7 @@
         <property name="name" column="name"
                   type="java.lang.String" />
         <property name="salary" column="salary"
-                  type="java.lang.Integer" />
+                  type="java.math.BigDecimal" />
         <property name="position" column="position"
                   type="java.lang.String" />
     </class>

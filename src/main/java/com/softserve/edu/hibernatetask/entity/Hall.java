@@ -1,11 +1,12 @@
 package com.softserve.edu.hibernatetask.entity;
 
-public class Hall {
+public final class Hall {
     private Integer hallId;
     private String name;
-    private String respId;
+    private Integer respId;
 
-    public Hall(){}
+    public Hall() {
+    }
 
     public Integer getHallId() {
         return hallId;
@@ -23,11 +24,11 @@ public class Hall {
         this.name = name;
     }
 
-    public String getRespId() {
+    public Integer getRespId() {
         return respId;
     }
 
-    public void setRespId(String respId) {
+    public void setRespId(Integer respId) {
         this.respId = respId;
     }
 }

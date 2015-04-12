@@ -1,13 +1,14 @@
 package com.softserve.edu.hibernatetask.entity;
 
-public class Excursion {
+public final class Excursion {
     private Integer excurId;
     private String name;
     private String schedule;
     private String duration;
     private Integer respId;
 
-    public Excursion() {}
+    public Excursion() {
+    }
 
     public Integer getExcurId() {
         return excurId;

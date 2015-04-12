@@ -1,12 +1,15 @@
 package com.softserve.edu.hibernatetask.entity;
 
-public class Employee {
+import java.math.BigDecimal;
+
+public final class Employee {
     private Integer emplId;
     private String name;
-    private Integer salary;
+    private BigDecimal salary;
     private String position;
 
-    public Employee(){}
+    public Employee() {
+    }
 
     public String getPosition() {
         return position;
@@ -32,14 +35,11 @@ public class Employee {
         this.name = name;
     }
 
-    public Integer getSalary() {
+    public BigDecimal getSalary() {
         return salary;
     }
 
-    public void setSalary(Integer salary) {
+    public void setSalary(BigDecimal salary) {
         this.salary = salary;
     }
-
-
-
 }
