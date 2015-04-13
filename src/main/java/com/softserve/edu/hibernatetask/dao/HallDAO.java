@@ -5,5 +5,5 @@ import com.softserve.edu.hibernatetask.entity.Hall;
 import java.util.List;
 
 public interface HallDAO extends BaseDAO<Hall> {
-    List<Hall> findByResponsible(Integer respId);
+    List<Hall> findByResponsible(Integer fk_resp_id);
 }

@@ -6,7 +6,6 @@ import java.util.Set;
 public final class Hall {
     private Integer hallId;
     private String name;
-    private Integer fk_empl_id;
     private Set<Exhibit> exhibits = new HashSet<>();
     private Employee employee;
 
@@ -16,7 +15,6 @@ public final class Hall {
 
     public Hall(String name, Integer respId) {
         this.name = name;
-        this.fk_empl_id = respId;
     }
 
     public Integer getHallId() {
@@ -33,14 +31,6 @@ public final class Hall {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Integer getFk_empl_id() {
-        return fk_empl_id;
-    }
-
-    public void setFk_empl_id(Integer respId) {
-        this.fk_empl_id = respId;
     }
 
     public Set<Exhibit> getExhibits() {

@@ -3,7 +3,7 @@ package com.softserve.edu.hibernatetask.entity;
 public final class Exhibit {
     private Integer exhibitId;
     private String name;
-    private Integer fk_hall_id;
+    private Hall hall;
     private String date;
     private String material;
     private String author;
@@ -12,10 +12,10 @@ public final class Exhibit {
     public Exhibit() {
     }
 
-    public Exhibit(String name, Integer hallId, String date, String material, String author,
+    public Exhibit(String name, Hall hallId, String date, String material, String author,
                    String technic) {
         this.name = name;
-        this.fk_hall_id = hallId;
+        this.hall = hallId;
         this.date = date;
         this.material = material;
         this.author = author;
@@ -38,8 +38,8 @@ public final class Exhibit {
         this.name = name;
     }
 
-    public void setFk_hall_id(Integer hallId) {
-        this.fk_hall_id = hallId;
+    public void setHall(Hall hallId) {
+        this.hall = hallId;
     }
 
     public String getDate() {
@@ -66,8 +66,8 @@ public final class Exhibit {
         this.author = author;
     }
 
-    public Integer getFk_hall_id() {
-        return fk_hall_id;
+    public Hall getHall() {
+        return hall;
     }
 
     public String getTechnic() {

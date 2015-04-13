@@ -1,8 +1,11 @@
 package com.softserve.edu.hibernatetask;
 
 import com.softserve.edu.hibernatetask.dao.EmployeeDAO;
+import com.softserve.edu.hibernatetask.dao.HallDAO;
 import com.softserve.edu.hibernatetask.dao.impl.EmployeeDataAccess;
+import com.softserve.edu.hibernatetask.dao.impl.HallDataAccess;
 import com.softserve.edu.hibernatetask.entity.Employee;
+import com.softserve.edu.hibernatetask.entity.Hall;
 
 import java.math.BigDecimal;
 
@@ -10,6 +13,8 @@ public class Test {
     public static void main(String[] args) {
         addEmployees();
         showEmployees();
+        addHalls();
+        showHalls();
     }
 
     private static void addEmployees() {
@@ -25,5 +30,18 @@ public class Test {
     private static void showEmployees() {
         EmployeeDAO empDAO = new EmployeeDataAccess();
         empDAO.findAll().forEach(e -> System.out.println(e.getName()));
+    }
+
+    private static void addHalls() {
+        Hall mainHall = new Hall("Main Hall", 1);
+        Hall dinoHall = new Hall("Dino Hall", 2);
+        HallDAO hallDAO = new HallDataAccess();
+        hallDAO.insert(mainHall);
+        hallDAO.insert(dinoHall);
+    }
+
+    private static  void showHalls(){
+        HallDAO hallDAO = new HallDataAccess();
+        hallDAO.findAll().forEach(e -> System.out.println(e.getName()));
     }
 }
