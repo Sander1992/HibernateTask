@@ -8,6 +8,11 @@ public final class Hall {
     public Hall() {
     }
 
+    public Hall(String name, Integer respId) {
+        this.name = name;
+        this.respId = respId;
+    }
+
     public Integer getHallId() {
         return hallId;
     }

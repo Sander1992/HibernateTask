@@ -3,8 +3,7 @@ package com.softserve.edu.hibernatetask.utils;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public enum SessionConfigurator {
-    SESSION;
+public class SessionConfigurator {
     private static final SessionFactory sessionFactory = buildSessionFactory();
 
     private static SessionFactory buildSessionFactory() {
