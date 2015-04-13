@@ -1,12 +1,16 @@
 package com.softserve.edu.hibernatetask.entity;
 
 import java.math.BigDecimal;
+import java.util.HashSet;
+import java.util.Set;
 
 public final class Employee {
     private Integer emplId;
     private String name;
     private BigDecimal salary;
     private String position;
+    private Set<Excursion> excursions = new HashSet<>();
+    private Set<Hall> halls = new HashSet<>();
 
     public Employee() {
     }
@@ -47,5 +51,21 @@ public final class Employee {
 
     public void setSalary(BigDecimal salary) {
         this.salary = salary;
+    }
+
+    public Set<Excursion> getExcursions() {
+        return excursions;
+    }
+
+    public void setExcursions(Set<Excursion> excursions) {
+        this.excursions = excursions;
+    }
+
+    public Set<Hall> getHalls() {
+        return halls;
+    }
+
+    public void setHalls(Set<Hall> halls) {
+        this.halls = halls;
     }
 }

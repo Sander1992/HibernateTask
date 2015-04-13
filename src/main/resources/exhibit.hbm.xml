@@ -7,8 +7,6 @@
             <generator class="increment"/> </id>
         <property name="name" column="name"
                   type="java.lang.String" />
-        <property name="hallId" column="hall_id"
-                  type="java.lang.Integer" />
         <property name="date" column="date"
                   type="java.lang.String" />
         <property name="material" column="material"
@@ -17,5 +15,6 @@
                   type="java.lang.String" />
         <property name="technic" column="technic"
                   type="java.lang.String" />
+        <many-to-one name="fk_hall_id" class="com.softserve.edu.hibernatetask.entity.Hall" column="fk_hall_id"/>
     </class>
 </hibernate-mapping>

@@ -5,9 +5,15 @@ public final class Excursion {
     private String name;
     private String schedule;
     private String duration;
-    private Integer respId;
+    private Integer fk_empl_id;
 
     public Excursion() {
+    }
+    public Excursion(String name, String schedule, String duration, Integer respId) {
+        this.name = name;
+        this.schedule = schedule;
+        this.duration = duration;
+        this.fk_empl_id = respId;
     }
 
     public Integer getExcurId() {
@@ -42,11 +48,11 @@ public final class Excursion {
         this.duration = duration;
     }
 
-    public Integer getRespId() {
-        return respId;
+    public Integer getFk_empl_id() {
+        return fk_empl_id;
     }
 
-    public void setRespId(Integer respId) {
-        this.respId = respId;
+    public void setFk_empl_id(Integer respId) {
+        this.fk_empl_id = respId;
     }
 }

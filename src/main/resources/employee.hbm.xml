@@ -11,5 +11,14 @@
                   type="java.math.BigDecimal" />
         <property name="position" column="position"
                   type="java.lang.String" />
+        <set name="excursions">
+            <key column="fk_empl_id"></key>
+            <one-to-many class="com.softserve.edu.hibernatetask.entity.Excursion"/>
+        </set>
+
+        <set name="halls">
+            <key column="fk_empl_id"></key>
+            <one-to-many class="com.softserve.edu.hibernatetask.entity.Hall"/>
+        </set>
     </class>
 </hibernate-mapping>

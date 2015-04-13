@@ -11,7 +11,6 @@
                   type="java.lang.String" />
         <property name="duration" column="duration"
                   type="java.lang.String" />
-        <property name="respId" column="resp_id"
-                  type="java.lang.Integer" />
+        <many-to-one name="fk_empl_id" class="com.softserve.edu.hibernatetask.entity.Employee" column="fk_empl_id"/>
     </class>
 </hibernate-mapping>
