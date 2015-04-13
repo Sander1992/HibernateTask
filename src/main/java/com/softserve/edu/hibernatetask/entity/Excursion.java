@@ -9,14 +9,12 @@ public final class Excursion {
 
     public Excursion() {
     }
-    public Excursion(String name, String schedule, String duration, Employee respId) {
+
+    public Excursion(String name, String schedule, String duration) {
         this.name = name;
         this.schedule = schedule;
         this.duration = duration;
-        this.employee = respId;
     }
-
-
 
     public Integer getExcurId() {
         return excurId;

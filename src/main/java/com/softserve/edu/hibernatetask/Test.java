@@ -33,14 +33,14 @@ public class Test {
     }
 
     private static void addHalls() {
-        Hall mainHall = new Hall("Main Hall", 1);
-        Hall dinoHall = new Hall("Dino Hall", 2);
+        Hall mainHall = new Hall("Main Hall");
+        Hall dinoHall = new Hall("Dino Hall");
         HallDAO hallDAO = new HallDataAccess();
         hallDAO.insert(mainHall);
         hallDAO.insert(dinoHall);
     }
 
-    private static  void showHalls(){
+    private static void showHalls() {
         HallDAO hallDAO = new HallDataAccess();
         hallDAO.findAll().forEach(e -> System.out.println(e.getName()));
     }

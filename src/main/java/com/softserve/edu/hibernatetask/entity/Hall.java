@@ -9,11 +9,10 @@ public final class Hall {
     private Set<Exhibit> exhibits = new HashSet<>();
     private Employee employee;
 
-
     public Hall() {
     }
 
-    public Hall(String name, Integer respId) {
+    public Hall(String name) {
         this.name = name;
     }
 

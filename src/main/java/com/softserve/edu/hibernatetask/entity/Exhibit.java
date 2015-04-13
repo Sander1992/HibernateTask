@@ -12,10 +12,8 @@ public final class Exhibit {
     public Exhibit() {
     }
 
-    public Exhibit(String name, Hall hallId, String date, String material, String author,
-                   String technic) {
+    public Exhibit(String name, String date, String material, String author, String technic) {
         this.name = name;
-        this.hall = hallId;
         this.date = date;
         this.material = material;
         this.author = author;
