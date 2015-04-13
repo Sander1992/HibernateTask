@@ -12,17 +12,6 @@ public final class Exhibit {
     public Exhibit() {
     }
 
-    public Exhibit(String name, Integer hallId, String date, String material, String author,
-            String technic) {
-        this.exhibitId = exhibitId;
-        this.name = name;
-        this.hallId = hallId;
-        this.date = date;
-        this.material = material;
-        this.author = author;
-        this.technic = technic;
-    }
-
     public Integer getExhibitId() {
         return exhibitId;
     }
