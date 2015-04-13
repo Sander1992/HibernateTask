@@ -10,6 +10,13 @@ public final class Excursion {
     public Excursion() {
     }
 
+    public Excursion(String name, String schedule, String duration, Integer respId) {
+        this.name = name;
+        this.schedule = schedule;
+        this.duration = duration;
+        this.respId = respId;
+    }
+
     public Integer getExcurId() {
         return excurId;
     }

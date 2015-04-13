@@ -1,1 +1,5 @@
-hibernate.cfg.xml
+#Hibernate configurations
+	hibernate.cfg.xml
+
+#Maven build directory
+	target
