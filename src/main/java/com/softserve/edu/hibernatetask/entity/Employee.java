@@ -11,6 +11,12 @@ public final class Employee {
     public Employee() {
     }
 
+    public Employee(String name, BigDecimal salary, String position) {
+        this.name = name;
+        this.salary = salary;
+        this.position = position;
+    }
+
     public String getPosition() {
         return position;
     }
