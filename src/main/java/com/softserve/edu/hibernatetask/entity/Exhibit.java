@@ -1,5 +1,8 @@
 package com.softserve.edu.hibernatetask.entity;
 
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+
 public final class Exhibit {
     private Integer exhibitId;
     private String name;
@@ -74,5 +77,24 @@ public final class Exhibit {
 
     public void setTechnic(String technic) {
         this.technic = technic;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Exhibit exhibit = (Exhibit) o;
+        return o.equals(exhibitId);
+    }
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder(17, 37)
+                .append(exhibitId)
+                .toHashCode();
     }
 }

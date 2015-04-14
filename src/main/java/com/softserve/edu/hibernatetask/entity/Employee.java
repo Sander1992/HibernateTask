@@ -1,5 +1,8 @@
 package com.softserve.edu.hibernatetask.entity;
 
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+
 import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
@@ -67,5 +70,24 @@ public final class Employee {
 
     public void setHalls(Set<Hall> halls) {
         this.halls = halls;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Employee employee = (Employee) o;
+        return o.equals(emplId);
+    }
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder(17, 37)
+                .append(emplId)
+                .toHashCode();
     }
 }

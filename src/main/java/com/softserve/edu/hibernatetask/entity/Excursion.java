@@ -1,5 +1,8 @@
 package com.softserve.edu.hibernatetask.entity;
 
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+
 public final class Excursion {
     private Integer excurId;
     private String name;
@@ -55,4 +58,23 @@ public final class Excursion {
     public void setEmployee(Employee respId) {
         this.employee = respId;
     }
-}
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Excursion excursion = (Excursion) o;
+        return o.equals(excurId);
+    }
+
+        @Override
+        public int hashCode () {
+            return new HashCodeBuilder(17, 37)
+                    .append(excurId)
+                    .toHashCode();
+        }
+    }
