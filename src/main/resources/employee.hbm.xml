@@ -16,9 +16,9 @@
             <one-to-many class="com.softserve.edu.hibernatetask.entity.Excursion"/>
         </set>
 
-        <set name="halls">
-            <key column="fk_empl_id"></key>
-            <one-to-many class="com.softserve.edu.hibernatetask.entity.Hall"/>
+        <set name="halls" table="employee_hall" lazy="false">
+            <key column="empl_id"></key>
+            <many-to-many class="com.softserve.edu.hibernatetask.entity.Hall" column="hall_id"/>
         </set>
     </class>
 </hibernate-mapping>

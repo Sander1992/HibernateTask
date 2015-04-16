@@ -11,6 +11,9 @@
             <key column="fk_hall_id"></key>
             <one-to-many class="com.softserve.edu.hibernatetask.entity.Exhibit"/>
         </set>
-        <many-to-one name="employee" class="com.softserve.edu.hibernatetask.entity.Employee" column="fk_empl_id"/>
+       <set name="employees" table="employee_hall" lazy="false">
+           <key column="hall_id"></key>
+           <many-to-many class="com.softserve.edu.hibernatetask.entity.Employee" column="empl_id"/>
+       </set>
     </class>
 </hibernate-mapping>

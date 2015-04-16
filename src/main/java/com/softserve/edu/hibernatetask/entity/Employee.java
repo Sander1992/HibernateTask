@@ -12,9 +12,8 @@ public final class Employee {
     private String name;
     private BigDecimal salary;
     private String position;
-    private Set<Excursion> excursions = new HashSet<>();
-    private Set<Hall> halls = new HashSet<>();
-
+    private Set<Excursion> excursions;
+    private Set<Hall> halls;
     public Employee() {
     }
 

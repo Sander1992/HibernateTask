@@ -9,8 +9,8 @@ import java.util.Set;
 public final class Hall {
     private Integer hallId;
     private String name;
-    private Set<Exhibit> exhibits = new HashSet<>();
-    private Employee employee;
+    private Set<Exhibit> exhibits;// = new HashSet<>();
+    private Set<Employee> employees;
 
     public Hall() {
     }
@@ -43,12 +43,12 @@ public final class Hall {
         this.exhibits = exhibits;
     }
 
-    public Employee getEmployee() {
-        return employee;
+    public Set<Employee> getEmployees() {
+        return employees;
     }
 
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
+    public void setEmployees(Set<Employee> employees) {
+        this.employees = employees;
     }
 
     @Override
