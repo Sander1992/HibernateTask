@@ -11,5 +11,10 @@
         <property name="hbm2ddl.auto">update</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="show_sql">true</property>
+
+        <mapping class="com.softserve.edu.hibernatetask.entity.Employee" />
+        <mapping class="com.softserve.edu.hibernatetask.entity.Exhibit" />
+        <mapping class="com.softserve.edu.hibernatetask.entity.Excursion" />
+        <mapping class="com.softserve.edu.hibernatetask.entity.Hall" />
     </session-factory>
 </hibernate-configuration>

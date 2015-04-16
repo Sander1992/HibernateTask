@@ -4,6 +4,7 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
 
 import javax.persistence.*;
 
+@Entity
 public final class Excursion {
 
     @Id

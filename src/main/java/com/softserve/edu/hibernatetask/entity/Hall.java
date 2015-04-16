@@ -5,7 +5,7 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
 import javax.persistence.*;
 import java.util.Set;
 
-
+@Entity
 public final class Hall {
 
     @Id
