@@ -15,6 +15,6 @@
                   type="java.lang.String" />
         <property name="technic" column="technic"
                   type="java.lang.String" />
-        <many-to-one name="hall" class="com.softserve.edu.hibernatetask.entity.Hall" column="fk_hall_id"/>
+        <many-to-one name="hall" class="com.softserve.edu.hibernatetask.entity.Hall" column="fk_hall_id" />
     </class>
 </hibernate-mapping>

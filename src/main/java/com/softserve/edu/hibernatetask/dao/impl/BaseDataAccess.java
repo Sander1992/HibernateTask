@@ -5,6 +5,7 @@ import com.softserve.edu.hibernatetask.utils.RecordFinder;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.beans.Expression;
 import java.util.List;
 
 import static com.softserve.edu.hibernatetask.utils.SessionConfigurator.getSessionFactory;
