@@ -1,13 +1,27 @@
 package com.softserve.edu.hibernatetask.entity;
 
-import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
+import javax.persistence.*;
+
 public final class Excursion {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column (name = "EXCUR_ID")
     private Integer excurId;
+
+    @Column (name = "EXCUR_NAME")
     private String name;
+
+    @Column (name = "EXCUR_SHEDULE")
     private String schedule;
+
+    @Column (name = "EXCUR_DURATION")
     private String duration;
+
+    @ManyToOne
+    @JoinColumn(name = "EMPL_ID")
     private Employee employee;
 
     public Excursion() {

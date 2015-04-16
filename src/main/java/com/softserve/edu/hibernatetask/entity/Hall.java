@@ -1,15 +1,26 @@
 package com.softserve.edu.hibernatetask.entity;
 
-import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
-import java.util.HashSet;
+import javax.persistence.*;
 import java.util.Set;
 
+
 public final class Hall {
+
+    @Id
+    @GeneratedValue (strategy = GenerationType.AUTO)
+    @Column (name = "HALL_ID")
     private Integer hallId;
+
+    @Column (name = "HALL_NAME")
     private String name;
-    private Set<Exhibit> exhibits;// = new HashSet<>();
+
+    @OneToMany
+    @JoinColumn (name = "HALL_ID")
+    private Set<Exhibit> exhibits;
+
+    @ManyToMany (mappedBy = "halls")
     private Set<Employee> employees;
 
     public Hall() {

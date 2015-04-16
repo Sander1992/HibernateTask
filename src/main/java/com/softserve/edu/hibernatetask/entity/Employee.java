@@ -1,19 +1,40 @@
 package com.softserve.edu.hibernatetask.entity;
 
-import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
+import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.HashSet;
 import java.util.Set;
 
+@Entity
 public final class Employee {
+
+    @Id
+    @GeneratedValue (strategy = GenerationType.AUTO)
+    @Column (name = "EMPL_ID")
     private Integer emplId;
+
+    @Column(name = "EMPL_NAME")
     private String name;
+
+    @Column (name = "EMPL_SALARY")
     private BigDecimal salary;
+
+    @Column (name = "EMPL_POSITION")
     private String position;
+
+    @OneToMany
+    @JoinColumn (name = "EMPL_ID")
     private Set<Excursion> excursions;
+
+    @ManyToMany
+    @JoinTable(
+            name = "EMPLOYEE_HALL",
+            joinColumns = {@JoinColumn(name="EMPL_ID")},
+            inverseJoinColumns = {@JoinColumn(name = "HALL_ID")}
+    )
     private Set<Hall> halls;
+
     public Employee() {
     }
 

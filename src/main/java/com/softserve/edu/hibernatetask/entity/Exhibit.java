@@ -1,15 +1,33 @@
 package com.softserve.edu.hibernatetask.entity;
 
-import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
+import javax.persistence.*;
+
 public final class Exhibit {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "EXHIB_ID")
     private Integer exhibitId;
+
+    @Column (name = "EXHIB_NAME")
     private String name;
+
+    @ManyToOne
+    @JoinColumn(name = "HALL_ID")
     private Hall hall;
+
+    @Column (name = "EXHIB_DATE")
     private String date;
+
+    @Column (name = "EXHIB_MATERIAL")
     private String material;
+
+    @Column (name = "EXHIB_AUTHOR")
     private String author;
+
+    @Column (name = "EXHIB_TECHNIC")
     private String technic;
 
     public Exhibit() {

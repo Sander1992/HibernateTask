@@ -6,14 +6,10 @@
     <session-factory>
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/museum_database</property>
-        <property name="hibernate.connection.username">Dmytro</property>
-        <property name="hibernate.connection.password">18129523</property>
+        <property name="hibernate.connection.username">Sander</property>
+        <property name="hibernate.connection.password">lv144</property>
         <property name="hbm2ddl.auto">update</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="show_sql">true</property>
-        <mapping resource="employee.hbm.xml"/>
-        <mapping resource="excursion.hbm.xml"/>
-        <mapping resource="hall.hbm.xml"/>
-        <mapping resource="exhibit.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>
