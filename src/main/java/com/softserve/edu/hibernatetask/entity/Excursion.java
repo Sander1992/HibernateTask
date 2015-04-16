@@ -2,10 +2,7 @@ package com.softserve.edu.hibernatetask.entity;
 
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public final class Excursion {
@@ -58,9 +55,11 @@ public final class Excursion {
         this.duration = duration;
     }
 
-//    public Employee getEmployee() {
-//        return employee;
-//    }
+    @ManyToOne
+    @JoinColumn(name="empl_id")
+    public Employee getEmployee() {
+        return employee;
+    }
 
     public void setEmployee(Employee respId) {
         this.employee = respId;

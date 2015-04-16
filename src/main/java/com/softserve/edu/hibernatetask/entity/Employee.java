@@ -2,13 +2,11 @@ package com.softserve.edu.hibernatetask.entity;
 
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
+
 @Entity
 public final class Employee {
     private Integer emplId;
@@ -26,7 +24,6 @@ public final class Employee {
         this.salary = salary;
         this.position = position;
     }
-
 
     public String getPosition() {
         return position;
@@ -62,17 +59,22 @@ public final class Employee {
         this.salary = salary;
     }
 
-//    public Set<Excursion> getExcursions() {
-//        return excursions;
-//    }
+    @OneToMany(mappedBy = "employee")
+    public Set<Excursion> getExcursions() {
+        return excursions;
+    }
 
     public void setExcursions(Set<Excursion> excursions) {
         this.excursions = excursions;
     }
 
-//    public Set<Hall> getHalls() {
-//        return halls;
-//    }
+    @ManyToMany
+    @JoinTable(name = "employee_hall",
+            joinColumns = {@JoinColumn(name = "empl_id")},
+            inverseJoinColumns = {@JoinColumn(name = "hall_id")})
+    public Set<Hall> getHalls() {
+        return halls;
+    }
 
     public void setHalls(Set<Hall> halls) {
         this.halls = halls;
