@@ -9,7 +9,7 @@ import java.util.Set;
 
 @Entity
 public final class Employee {
-    private Integer emplId;
+    private Integer id;
     private String name;
     private BigDecimal salary;
     private String position;
@@ -35,12 +35,12 @@ public final class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public Integer getEmplId() {
-        return emplId;
+    public Integer getId() {
+        return id;
     }
 
-    public void setEmplId(Integer id) {
-        this.emplId = id;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -89,13 +89,13 @@ public final class Employee {
             return false;
         }
         Employee employee = (Employee) o;
-        return o.equals(emplId);
+        return o.equals(id);
     }
 
     @Override
     public int hashCode() {
         return new HashCodeBuilder(17, 37)
-                .append(emplId)
+                .append(id)
                 .toHashCode();
     }
 }

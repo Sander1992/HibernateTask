@@ -3,7 +3,7 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
     <class name="com.softserve.edu.hibernatetask.entity.Exhibit" table="exhibit">
-        <id name="exhibitId" column="exhib_id" type="java.lang.Integer">
+        <id name="id" column="exhib_id" type="java.lang.Integer">
             <generator class="increment"/> </id>
         <property name="name" column="name"
                   type="java.lang.String" />

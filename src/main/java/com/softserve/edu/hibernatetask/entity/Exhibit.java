@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 public final class Exhibit {
-    private Integer exhibitId;
+    private Integer id;
     private String name;
     private Hall hall;
     private String date;
@@ -27,12 +27,12 @@ public final class Exhibit {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public Integer getExhibitId() {
-        return exhibitId;
+    public Integer getId() {
+        return id;
     }
 
-    public void setExhibitId(Integer exhibitId) {
-        this.exhibitId = exhibitId;
+    public void setId(Integer exhibitId) {
+        this.id = exhibitId;
     }
 
     public String getName() {
@@ -94,13 +94,13 @@ public final class Exhibit {
             return false;
         }
         Exhibit exhibit = (Exhibit) o;
-        return o.equals(exhibitId);
+        return o.equals(id);
     }
 
     @Override
     public int hashCode() {
         return new HashCodeBuilder(17, 37)
-                .append(exhibitId)
+                .append(id)
                 .toHashCode();
     }
 }

@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 public final class Excursion {
-    private Integer excurId;
+    private Integer id;
     private String name;
     private String schedule;
     private String duration;
@@ -23,12 +23,12 @@ public final class Excursion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public Integer getExcurId() {
-        return excurId;
+    public Integer getId() {
+        return id;
     }
 
-    public void setExcurId(Integer excurId) {
-        this.excurId = excurId;
+    public void setId(Integer excurId) {
+        this.id = excurId;
     }
 
     public String getName() {
@@ -74,13 +74,13 @@ public final class Excursion {
             return false;
         }
         Excursion excursion = (Excursion) o;
-        return o.equals(excurId);
+        return o.equals(id);
     }
 
         @Override
         public int hashCode () {
             return new HashCodeBuilder(17, 37)
-                    .append(excurId)
+                    .append(id)
                     .toHashCode();
         }
     }

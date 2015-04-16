@@ -8,7 +8,7 @@ import java.util.Set;
 
 @Entity
 public final class Hall {
-    private Integer hallId;
+    private Integer id;
     private String name;
     private Set<Exhibit> exhibits = new HashSet<>();
     private Set<Employee> employees;
@@ -22,12 +22,12 @@ public final class Hall {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public Integer getHallId() {
-        return hallId;
+    public Integer getId() {
+        return id;
     }
 
-    public void setHallId(Integer hallId) {
-        this.hallId = hallId;
+    public void setId(Integer hallId) {
+        this.id = hallId;
     }
 
     public String getName() {
@@ -65,13 +65,13 @@ public final class Hall {
             return false;
         }
         Hall hall = (Hall) o;
-        return o.equals(hallId);
+        return o.equals(id);
     }
 
     @Override
     public int hashCode() {
         return new HashCodeBuilder(17, 37)
-                .append(hallId)
+                .append(id)
                 .toHashCode();
     }
 }
