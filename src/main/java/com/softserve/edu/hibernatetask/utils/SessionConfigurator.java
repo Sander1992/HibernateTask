@@ -1,6 +1,8 @@
 package com.softserve.edu.hibernatetask.utils;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
 public class SessionConfigurator {
@@ -8,7 +10,11 @@ public class SessionConfigurator {
 
     private static SessionFactory buildSessionFactory() {
         try {
-            return new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+            Configuration configuration = new Configuration();
+            configuration.configure();
+            StandardServiceRegistryBuilder serviceRegistry = new StandardServiceRegistryBuilder()
+                    .applySettings(configuration.getProperties());
+            return configuration.buildSessionFactory(serviceRegistry.build());
         } catch (Throwable ex) {
             System.err.println("An exception while initializing occurred");
             throw new ExceptionInInitializerError(ex);

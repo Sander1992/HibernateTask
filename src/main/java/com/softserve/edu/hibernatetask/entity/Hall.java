@@ -7,10 +7,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@Table(uniqueConstraints = {
+})
 public final class Hall {
     private Integer id;
     private String name;
-    private Set<Exhibit> exhibits = new HashSet<>();
+    private Set<Exhibit> exhibits;
     private Set<Employee> employees;
 
     public Hall() {
@@ -26,8 +28,8 @@ public final class Hall {
         return id;
     }
 
-    public void setId(Integer hallId) {
-        this.id = hallId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -47,7 +49,7 @@ public final class Hall {
         this.exhibits = exhibits;
     }
 
-    @ManyToMany(mappedBy = "halls")
+    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "halls")
     public Set<Employee> getEmployees() {
         return employees;
     }

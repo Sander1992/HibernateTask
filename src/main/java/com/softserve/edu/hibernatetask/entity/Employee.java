@@ -4,6 +4,7 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,8 +14,8 @@ public final class Employee {
     private String name;
     private BigDecimal salary;
     private String position;
-    private Set<Excursion> excursions = new HashSet<>();
-    private Set<Hall> halls = new HashSet<>();
+    private Set<Excursion> excursions;
+    private Set<Hall> halls;
 
     public Employee() {
     }
@@ -59,7 +60,7 @@ public final class Employee {
         this.salary = salary;
     }
 
-    @OneToMany(mappedBy = "employee")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee")
     public Set<Excursion> getExcursions() {
         return excursions;
     }
@@ -68,7 +69,7 @@ public final class Employee {
         this.excursions = excursions;
     }
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "employee_hall",
             joinColumns = {@JoinColumn(name = "empl_id")},
             inverseJoinColumns = {@JoinColumn(name = "hall_id")})

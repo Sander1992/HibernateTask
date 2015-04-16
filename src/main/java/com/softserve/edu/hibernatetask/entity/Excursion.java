@@ -55,7 +55,7 @@ public final class Excursion {
         this.duration = duration;
     }
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="empl_id")
     public Employee getEmployee() {
         return employee;
