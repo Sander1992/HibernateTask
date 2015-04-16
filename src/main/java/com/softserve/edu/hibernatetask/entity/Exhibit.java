@@ -1,8 +1,13 @@
 package com.softserve.edu.hibernatetask.entity;
 
-import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public final class Exhibit {
     private Integer exhibitId;
     private String name;
@@ -23,6 +28,8 @@ public final class Exhibit {
         this.technic = technic;
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer getExhibitId() {
         return exhibitId;
     }
@@ -67,9 +74,9 @@ public final class Exhibit {
         this.author = author;
     }
 
-    public Hall getHall() {
-        return hall;
-    }
+//    public Hall getHall() {
+//        return hall;
+//    }
 
     public String getTechnic() {
         return technic;

@@ -6,6 +6,7 @@ public interface BaseDAO<T> {
     Integer insert(T entity);
     void delete(T entity);
     void update(T entity);
+    T merge(T entity);
     T findById(Integer id);
     List<T> findAll();
     List<T> findByName(String name);

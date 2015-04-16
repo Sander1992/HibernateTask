@@ -1,16 +1,20 @@
 package com.softserve.edu.hibernatetask.entity;
 
-import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.HashSet;
 import java.util.Set;
 
+@Entity
 public final class Hall {
     private Integer hallId;
     private String name;
     private Set<Exhibit> exhibits = new HashSet<>();
-    private Employee employee;
+    private Set<Employee> employees;
 
     public Hall() {
     }
@@ -19,6 +23,8 @@ public final class Hall {
         this.name = name;
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer getHallId() {
         return hallId;
     }
@@ -35,20 +41,20 @@ public final class Hall {
         this.name = name;
     }
 
-    public Set<Exhibit> getExhibits() {
-        return exhibits;
-    }
+//    public Set<Exhibit> getExhibits() {
+//        return exhibits;
+//    }
 
     public void setExhibits(Set<Exhibit> exhibits) {
         this.exhibits = exhibits;
     }
 
-    public Employee getEmployee() {
-        return employee;
-    }
+//    public Set<Employee> getEmployees() {
+//        return employees;
+//    }
 
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
+    public void setEmployees(Set<Employee> employees) {
+        this.employees = employees;
     }
 
     @Override

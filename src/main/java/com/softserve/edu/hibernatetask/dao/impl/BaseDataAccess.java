@@ -70,6 +70,24 @@ public abstract class BaseDataAccess<T> implements BaseDAO<T> {
         }
     }
 
+    public T merge(T entity) {
+        Session session = getSessionFactory().openSession();
+        Transaction tx = session.beginTransaction();
+        try {
+            @SuppressWarnings("unchecked")
+            T result = (T) session.merge(entity);
+            tx.commit();
+            return result;
+        } catch (Exception ex) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            throw new AssertionError(ex);
+        } finally {
+            session.close();
+        }
+    }
+
     @Override
     public T findById(Integer id) {
         Session session = getSessionFactory().openSession();

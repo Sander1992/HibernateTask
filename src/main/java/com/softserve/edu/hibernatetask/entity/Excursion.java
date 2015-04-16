@@ -1,8 +1,13 @@
 package com.softserve.edu.hibernatetask.entity;
 
-import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public final class Excursion {
     private Integer excurId;
     private String name;
@@ -19,6 +24,8 @@ public final class Excursion {
         this.duration = duration;
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer getExcurId() {
         return excurId;
     }
@@ -51,9 +58,9 @@ public final class Excursion {
         this.duration = duration;
     }
 
-    public Employee getEmployee() {
-        return employee;
-    }
+//    public Employee getEmployee() {
+//        return employee;
+//    }
 
     public void setEmployee(Employee respId) {
         this.employee = respId;

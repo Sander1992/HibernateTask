@@ -12,14 +12,16 @@
                   type="java.math.BigDecimal"/>
         <property name="position" column="position"
                   type="java.lang.String"/>
-        <set name="excursions" lazy="false" fetch="join" >
+        <set name="excursions">
             <key column="fk_empl_id"></key>
-            <one-to-many class="com.softserve.edu.hibernatetask.entity.Excursion" />
+            <one-to-many entity-name="com.softserve.edu.hibernatetask.entity.Excursion" />
         </set>
 
-        <set name="halls" lazy="true" fetch="join">
-            <key column="fk_empl_id"></key>
-            <one-to-many class="com.softserve.edu.hibernatetask.entity.Hall"/>
+        <set name="halls" table="employee_hall">
+            <key column="empl_id"></key>
+            <many-to-many entity-name="com.softserve.edu.hibernatetask.entity.Hall">
+                <column name="hall_id"></column>
+            </many-to-many>
         </set>
     </class>
 </hibernate-mapping>
