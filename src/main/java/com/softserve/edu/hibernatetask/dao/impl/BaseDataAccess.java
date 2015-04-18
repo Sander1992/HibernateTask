@@ -2,94 +2,60 @@ package com.softserve.edu.hibernatetask.dao.impl;
 
 import com.softserve.edu.hibernatetask.dao.BaseDAO;
 import com.softserve.edu.hibernatetask.utils.RecordFinder;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
 
-import java.beans.Expression;
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaQuery;
 import java.util.List;
 
-import static com.softserve.edu.hibernatetask.utils.SessionConfigurator.getSessionFactory;
+import static com.softserve.edu.hibernatetask.utils.Configurator.getEntityManagerFactory;
 
-public abstract class BaseDataAccess<T> implements BaseDAO<T> {
+public class BaseDataAccess<T> implements BaseDAO<T> {
 
-    private final Class<?> table;
+    private final Class<T> entityClass;
+    private final EntityManager entityManager;
 
-    public BaseDataAccess(Class<?> table) {
-        this.table = table;
+    public BaseDataAccess(Class<T> table, EntityManager entityManager) {
+        this.entityClass = table;
+        this.entityManager = entityManager;
     }
 
     @Override
-    public Integer insert(T entity) {
-        Session session = getSessionFactory().openSession();
-        Transaction tx = session.beginTransaction();
-        try {
-            Integer result = (Integer) session.save(entity);
-            tx.commit();
-            return result;
-        } catch (Exception ex) {
-            if (tx != null) {
-                tx.rollback();
-            }
-            throw new AssertionError(ex);
-        } finally {
-            session.close();
-        }
+    public void insert(T entity) {
+        entityManager.persist(entity);
     }
 
     @Override
     public void delete(T entity) {
-        Session session = getSessionFactory().openSession();
-        Transaction tx = session.beginTransaction();
-        try {
-            session.delete(entity);
-            tx.commit();
-        } catch (Exception ex) {
-            if (tx != null) {
-                tx.rollback();
-            }
-            throw new AssertionError(ex);
-        } finally {
-            session.close();
-        }
+        entityManager.remove(entity);
+    }
+
+    @Override
+    public T merge(T entity) {
+
+        return entityManager.merge(entity);
     }
 
     @Override
     public void update(T entity) {
-        Session session = getSessionFactory().openSession();
-        Transaction tx = session.beginTransaction();
-        try {
-            session.update(entity);
-            tx.commit();
-        } catch (Exception ex) {
-            if (tx != null) {
-                tx.rollback();
-            }
-            throw new AssertionError(ex);
-        } finally {
-            session.close();
-        }
+        entityManager.refresh(entity);
     }
 
     @Override
     public T findById(Integer id) {
-        Session session = getSessionFactory().openSession();
-        @SuppressWarnings("unchecked")
-        T result = (T) session.get(table, id);
-        session.close();
-        return result;
+        return entityManager.find(entityClass, id);
     }
 
     @Override
     public List<T> findAll() {
-        Session session = getSessionFactory().openSession();
-        List<T> result = session
-                .createQuery("from " + table.getName()).list();
-        session.close();
-        return result;
+        CriteriaQuery<T> criteriaQuery = entityManager.getCriteriaBuilder().createQuery(entityClass);
+        criteriaQuery.select(criteriaQuery.from(entityClass));
+        TypedQuery<T> typedQuery = entityManager.createQuery(criteriaQuery);
+        return typedQuery.getResultList();
     }
 
     @Override
     public List<T> findByName(String name) {
-        return RecordFinder.find(table, "name", name);
+        return RecordFinder.find(entityClass, "name", name);
     }
 }
