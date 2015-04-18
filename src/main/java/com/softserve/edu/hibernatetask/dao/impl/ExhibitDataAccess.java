@@ -9,17 +9,20 @@ import javax.persistence.EntityManager;
 import java.util.List;
 
 public final class ExhibitDataAccess extends BaseDataAccess<Exhibit> implements ExhibitDAO {
+    private final EntityManager entityManager;
+
     public ExhibitDataAccess(EntityManager entityManager) {
         super(Exhibit.class, entityManager);
+        this.entityManager = entityManager;
     }
 
     @Override
     public List<Exhibit> findByAuthor(String author) {
-        return RecordFinder.find(Exhibit.class, "author", author);
+        return RecordFinder.find(Exhibit.class, "author", author, entityManager);
     }
 
     @Override
     public List<Exhibit> findByTechnic(String technic) {
-        return RecordFinder.find(Exhibit.class, "technic", technic);
+        return RecordFinder.find(Exhibit.class, "technic", technic, entityManager);
     }
 }

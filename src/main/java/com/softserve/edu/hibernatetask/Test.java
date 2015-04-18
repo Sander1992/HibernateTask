@@ -22,6 +22,7 @@ public class Test {
         addEmployees();
         BaseService<Employee> empService = new BaseMuseumService<>(Employee.class);
         empService.findAll().forEach(e-> System.out.println(e.getName()));
+        empService.findByName("Dmytro").forEach(e-> System.out.println(e.getPosition()));
         Configurator.closeSession();
     }
 

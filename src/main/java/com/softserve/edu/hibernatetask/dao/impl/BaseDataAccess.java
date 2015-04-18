@@ -56,6 +56,6 @@ public class BaseDataAccess<T> implements BaseDAO<T> {
 
     @Override
     public List<T> findByName(String name) {
-        return RecordFinder.find(entityClass, "name", name);
+        return RecordFinder.find(entityClass, "name", name, entityManager);
     }
 }
