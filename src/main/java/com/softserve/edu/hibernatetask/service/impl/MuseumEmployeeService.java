@@ -5,9 +5,7 @@ import com.softserve.edu.hibernatetask.service.EmployeeService;
 
 import java.util.List;
 
-import static com.softserve.edu.hibernatetask.utils.PrettyOutput.displayColumns;
-import static com.softserve.edu.hibernatetask.utils.PrettyOutput.displayDelimiter;
-import static com.softserve.edu.hibernatetask.utils.PrettyOutput.displayInfo;
+import static com.softserve.edu.hibernatetask.utils.PrettyOutput.*;
 
 public final class MuseumEmployeeService extends MuseumBaseService<Employee> implements EmployeeService {
 
@@ -22,5 +20,6 @@ public final class MuseumEmployeeService extends MuseumBaseService<Employee> imp
         displayColumns("Name", "Position");
         displayDelimiter();
         employees.forEach(e -> displayColumns(e.getName(), e.getPosition()));
+        displayDelimiter();
     }
 }

@@ -1,18 +1,16 @@
 package com.softserve.edu.hibernatetask.entity;
 
 import org.apache.commons.lang.builder.HashCodeBuilder;
-import org.hibernate.annotations.*;
 
 import javax.persistence.*;
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
+import java.util.Date;
 
 @Entity
 public final class Exhibit {
     private Integer id;
     private String name;
     private Hall hall;
-    private String date;
+    private Date date;
     private String material;
     private String author;
     private String technic;
@@ -20,7 +18,7 @@ public final class Exhibit {
     public Exhibit() {
     }
 
-    public Exhibit(String name, String date, String material, String author, String technic,
+    public Exhibit(String name, Date date, String material, String author, String technic,
             Hall hall) {
         this.name = name;
         this.date = date;
@@ -53,11 +51,11 @@ public final class Exhibit {
         this.hall = hallId;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
@@ -78,7 +76,7 @@ public final class Exhibit {
         this.author = author;
     }
 
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToOne(cascade = {CascadeType.MERGE})
     @JoinColumn(nullable = false, name = "hall_id")
     public Hall getHall() {
         return hall;
@@ -109,5 +107,10 @@ public final class Exhibit {
         return new HashCodeBuilder(17, 37)
                 .append(id)
                 .toHashCode();
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }

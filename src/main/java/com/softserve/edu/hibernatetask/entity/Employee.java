@@ -1,11 +1,8 @@
 package com.softserve.edu.hibernatetask.entity;
 
 import org.apache.commons.lang.builder.HashCodeBuilder;
-import org.hibernate.annotations.*;
 
 import javax.persistence.*;
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
 import java.math.BigDecimal;
 import java.util.Set;
 
@@ -62,7 +59,7 @@ public final class Employee {
         this.salary = salary;
     }
 
-    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = true,
+    @OneToMany(cascade = {CascadeType.MERGE}, orphanRemoval = true,
             mappedBy = "employee")
     public Set<Excursion> getExcursions() {
         return excursions;
@@ -72,7 +69,7 @@ public final class Employee {
         this.excursions = excursions;
     }
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.MERGE}, mappedBy = "employees")
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, mappedBy = "employees")
     public Set<Hall> getHalls() {
         return halls;
     }
@@ -98,5 +95,10 @@ public final class Employee {
         return new HashCodeBuilder(17, 37)
                 .append(id)
                 .toHashCode();
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }

@@ -3,19 +3,20 @@ package com.softserve.edu.hibernatetask.entity;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 public final class Excursion {
     private Integer id;
     private String name;
-    private String schedule;
+    private Date schedule;
     private String duration;
     private Employee employee;
 
     public Excursion() {
     }
 
-    public Excursion(String name, String schedule, String duration, Employee employee) {
+    public Excursion(String name, Date schedule, String duration, Employee employee) {
         this.name = name;
         this.schedule = schedule;
         this.duration = duration;
@@ -41,11 +42,11 @@ public final class Excursion {
         this.name = name;
     }
 
-    public String getSchedule() {
+    public Date getSchedule() {
         return schedule;
     }
 
-    public void setSchedule(String schedule) {
+    public void setSchedule(Date schedule) {
         this.schedule = schedule;
     }
 
@@ -84,5 +85,10 @@ public final class Excursion {
         return new HashCodeBuilder(17, 37)
                 .append(id)
                 .toHashCode();
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }

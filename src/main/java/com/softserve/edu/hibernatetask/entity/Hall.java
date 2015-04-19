@@ -3,7 +3,6 @@ package com.softserve.edu.hibernatetask.entity;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
 import javax.persistence.*;
-import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -41,7 +40,7 @@ public final class Hall {
         this.name = name;
     }
 
-    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = true,
+    @OneToMany(cascade = {CascadeType.MERGE}, orphanRemoval = true,
             mappedBy = "hall")
     public Set<Exhibit> getExhibits() {
         return exhibits;
@@ -51,7 +50,7 @@ public final class Hall {
         this.exhibits = exhibits;
     }
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToMany(cascade = {CascadeType.MERGE})
     @JoinTable(name = "employee_hall",
             joinColumns = {@JoinColumn(name = "hall_id")},
             inverseJoinColumns = {@JoinColumn(nullable = false, name = "empl_id")})
@@ -80,5 +79,10 @@ public final class Hall {
         return new HashCodeBuilder(17, 37)
                 .append(id)
                 .toHashCode();
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }

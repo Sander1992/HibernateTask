@@ -20,8 +20,8 @@ public final class PrettyOutput {
         displayDelimiter();
     }
 
-    public static void displayColumns(String... columns) {
-        for (String column : columns) {
+    public static void displayColumns(Object... columns) {
+        for (Object column : columns) {
             System.out.printf("%-" + WIDTH + "s", column);
         }
         System.out.println();
