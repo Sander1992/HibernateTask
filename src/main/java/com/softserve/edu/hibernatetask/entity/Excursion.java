@@ -15,10 +15,11 @@ public final class Excursion {
     public Excursion() {
     }
 
-    public Excursion(String name, String schedule, String duration) {
+    public Excursion(String name, String schedule, String duration, Employee employee) {
         this.name = name;
         this.schedule = schedule;
         this.duration = duration;
+        this.employee = employee;
     }
 
     @Id
@@ -31,6 +32,7 @@ public final class Excursion {
         this.id = excurId;
     }
 
+    @Column(nullable = false)
     public String getName() {
         return name;
     }
@@ -55,8 +57,8 @@ public final class Excursion {
         this.duration = duration;
     }
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="empl_id")
+    @ManyToOne()
+    @JoinColumn(nullable = false, name = "empl_id")
     public Employee getEmployee() {
         return employee;
     }
@@ -77,10 +79,10 @@ public final class Excursion {
         return o.equals(id);
     }
 
-        @Override
-        public int hashCode () {
-            return new HashCodeBuilder(17, 37)
-                    .append(id)
-                    .toHashCode();
-        }
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder(17, 37)
+                .append(id)
+                .toHashCode();
     }
+}

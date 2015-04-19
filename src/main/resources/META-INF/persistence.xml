@@ -1,0 +1,19 @@
+<persistence version="2.0"
+             xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="
+        http://java.sun.com/xml/ns/persistence
+        http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+    <persistence-unit name="MainUnit" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <properties>
+            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"></property>
+            <property name="hibernate.connection.url" value=" jdbc:mysql://localhost:3306/museum_database"></property>
+            <property name="hibernate.connection.username" value=" Dmytro"></property>
+            <property name="hibernate.connection.password" value=" 18129523"></property>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
+            <property name="hibernate.show_sql" value="true"></property>
+            <property name="hibernate.format_sql" value="true"></property>
+        </properties>
+    </persistence-unit>
+</persistence>

@@ -1,8 +1,11 @@
 package com.softserve.edu.hibernatetask.entity;
 
 import org.apache.commons.lang.builder.HashCodeBuilder;
+import org.hibernate.annotations.*;
 
 import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
 
 @Entity
 public final class Exhibit {
@@ -17,12 +20,14 @@ public final class Exhibit {
     public Exhibit() {
     }
 
-    public Exhibit(String name, String date, String material, String author, String technic) {
+    public Exhibit(String name, String date, String material, String author, String technic,
+            Hall hall) {
         this.name = name;
         this.date = date;
         this.material = material;
         this.author = author;
         this.technic = technic;
+        this.hall = hall;
     }
 
     @Id
@@ -35,6 +40,7 @@ public final class Exhibit {
         this.id = exhibitId;
     }
 
+    @Column(nullable = false)
     public String getName() {
         return name;
     }
@@ -63,6 +69,7 @@ public final class Exhibit {
         this.material = material;
     }
 
+    @Column(nullable = false)
     public String getAuthor() {
         return author;
     }
@@ -71,8 +78,8 @@ public final class Exhibit {
         this.author = author;
     }
 
-    @ManyToOne
-    @JoinColumn(name="hall_id")
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinColumn(nullable = false, name = "hall_id")
     public Hall getHall() {
         return hall;
     }

@@ -18,8 +18,9 @@ public final class Hall {
     public Hall() {
     }
 
-    public Hall(String name) {
+    public Hall(String name, Set<Employee> employees) {
         this.name = name;
+        this.employees = employees;
     }
 
     @Id
@@ -40,7 +41,8 @@ public final class Hall {
         this.name = name;
     }
 
-    @OneToMany(mappedBy = "hall")
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = true,
+            mappedBy = "hall")
     public Set<Exhibit> getExhibits() {
         return exhibits;
     }
@@ -49,7 +51,10 @@ public final class Hall {
         this.exhibits = exhibits;
     }
 
-    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "halls")
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(name = "employee_hall",
+            joinColumns = {@JoinColumn(name = "hall_id")},
+            inverseJoinColumns = {@JoinColumn(nullable = false, name = "empl_id")})
     public Set<Employee> getEmployees() {
         return employees;
     }

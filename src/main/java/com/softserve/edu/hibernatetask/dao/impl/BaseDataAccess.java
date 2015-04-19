@@ -32,7 +32,6 @@ public class BaseDataAccess<T> implements BaseDAO<T> {
 
     @Override
     public T merge(T entity) {
-
         return entityManager.merge(entity);
     }
 

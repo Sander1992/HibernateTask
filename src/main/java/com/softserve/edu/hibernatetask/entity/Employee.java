@@ -1,11 +1,12 @@
 package com.softserve.edu.hibernatetask.entity;
 
 import org.apache.commons.lang.builder.HashCodeBuilder;
+import org.hibernate.annotations.*;
 
 import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
 import java.math.BigDecimal;
-import java.util.Collection;
-import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -44,6 +45,7 @@ public final class Employee {
         this.id = id;
     }
 
+    @Column(nullable = false)
     public String getName() {
         return name;
     }
@@ -60,7 +62,8 @@ public final class Employee {
         this.salary = salary;
     }
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee")
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = true,
+            mappedBy = "employee")
     public Set<Excursion> getExcursions() {
         return excursions;
     }
@@ -69,10 +72,7 @@ public final class Employee {
         this.excursions = excursions;
     }
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "employee_hall",
-            joinColumns = {@JoinColumn(name = "empl_id")},
-            inverseJoinColumns = {@JoinColumn(name = "hall_id")})
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.MERGE}, mappedBy = "employees")
     public Set<Hall> getHalls() {
         return halls;
     }
