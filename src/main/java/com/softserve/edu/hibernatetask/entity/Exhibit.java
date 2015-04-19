@@ -3,38 +3,33 @@ package com.softserve.edu.hibernatetask.entity;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
-public final class Exhibit {
+public class Exhibit {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "EXHIB_ID")
-    private Integer exhibitId;
+    private Integer id;
 
-    @Column (name = "EXHIB_NAME")
+    @Column(nullable = false)
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "HALL_ID")
+    @ManyToOne(cascade = {CascadeType.MERGE})
+    @JoinColumn(nullable = false, name = "hall_id")
     private Hall hall;
 
-    @Column (name = "EXHIB_DATE")
-    private String date;
-
-    @Column (name = "EXHIB_MATERIAL")
+    @Column (nullable = false)
+    @Temporal(TemporalType.DATE)
+    private Date date;
     private String material;
-
-    @Column (name = "EXHIB_AUTHOR")
     private String author;
-
-    @Column (name = "EXHIB_TECHNIC")
     private String technic;
 
     public Exhibit() {
     }
 
-    public Exhibit(String name, String date, String material, String author, String technic) {
+    public Exhibit(String name, Date date, String material, String author, String technic) {
         this.name = name;
         this.date = date;
         this.material = material;
@@ -42,12 +37,12 @@ public final class Exhibit {
         this.technic = technic;
     }
 
-    public Integer getExhibitId() {
-        return exhibitId;
+    public Integer getId() {
+        return id;
     }
 
-    public void setExhibitId(Integer exhibitId) {
-        this.exhibitId = exhibitId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -62,11 +57,11 @@ public final class Exhibit {
         this.hall = hallId;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
@@ -107,13 +102,13 @@ public final class Exhibit {
             return false;
         }
         Exhibit exhibit = (Exhibit) o;
-        return o.equals(exhibitId);
+        return o.equals(id);
     }
 
     @Override
     public int hashCode() {
         return new HashCodeBuilder(17, 37)
-                .append(exhibitId)
+                .append(id)
                 .toHashCode();
     }
 }

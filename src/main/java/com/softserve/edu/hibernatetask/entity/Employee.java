@@ -7,32 +7,22 @@ import java.math.BigDecimal;
 import java.util.Set;
 
 @Entity
-public final class Employee {
+public class Employee{
 
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
-    @Column (name = "EMPL_ID")
-    private Integer emplId;
+    private Integer id;
 
-    @Column(name = "EMPL_NAME")
+    @Column(nullable = false)
     private String name;
-
-    @Column (name = "EMPL_SALARY")
     private BigDecimal salary;
-
-    @Column (name = "EMPL_POSITION")
     private String position;
 
-    @OneToMany
-    @JoinColumn (name = "EMPL_ID")
+    @OneToMany(cascade = {CascadeType.MERGE}, orphanRemoval = true,
+            mappedBy = "employee")
     private Set<Excursion> excursions;
 
-    @ManyToMany
-    @JoinTable(
-            name = "EMPLOYEE_HALL",
-            joinColumns = {@JoinColumn(name="EMPL_ID")},
-            inverseJoinColumns = {@JoinColumn(name = "HALL_ID")}
-    )
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, mappedBy = "employees")
     private Set<Hall> halls;
 
     public Employee() {
@@ -52,12 +42,12 @@ public final class Employee {
         this.position = position;
     }
 
-    public Integer getEmplId() {
-        return emplId;
+    public Integer getId() {
+        return id;
     }
 
-    public void setEmplId(Integer id) {
-        this.emplId = id;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -101,13 +91,13 @@ public final class Employee {
             return false;
         }
         Employee employee = (Employee) o;
-        return o.equals(emplId);
+        return o.equals(id);
     }
 
     @Override
     public int hashCode() {
         return new HashCodeBuilder(17, 37)
-                .append(emplId)
+                .append(id)
                 .toHashCode();
     }
 }

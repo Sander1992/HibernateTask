@@ -5,24 +5,19 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
 import javax.persistence.*;
 
 @Entity
-public final class Excursion {
+public class Excursion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column (name = "EXCUR_ID")
-    private Integer excurId;
+    private Integer id;
 
-    @Column (name = "EXCUR_NAME")
+    @Column(nullable = false)
     private String name;
-
-    @Column (name = "EXCUR_SHEDULE")
     private String schedule;
-
-    @Column (name = "EXCUR_DURATION")
     private String duration;
 
     @ManyToOne
-    @JoinColumn(name = "EMPL_ID")
+    @JoinColumn(nullable = false, name = "EMPL_ID")
     private Employee employee;
 
     public Excursion() {
@@ -34,12 +29,12 @@ public final class Excursion {
         this.duration = duration;
     }
 
-    public Integer getExcurId() {
-        return excurId;
+    public Integer getId() {
+        return id;
     }
 
-    public void setExcurId(Integer excurId) {
-        this.excurId = excurId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -83,13 +78,13 @@ public final class Excursion {
             return false;
         }
         Excursion excursion = (Excursion) o;
-        return o.equals(excurId);
+        return o.equals(id);
     }
 
         @Override
         public int hashCode () {
             return new HashCodeBuilder(17, 37)
-                    .append(excurId)
+                    .append(id)
                     .toHashCode();
         }
     }

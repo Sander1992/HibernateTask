@@ -6,36 +6,40 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-public final class Hall {
+public class Hall {
 
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
-    @Column (name = "HALL_ID")
-    private Integer hallId;
+    private Integer id;
 
-    @Column (name = "HALL_NAME")
+    @Column(nullable = false)
     private String name;
 
-    @OneToMany
-    @JoinColumn (name = "HALL_ID")
+    @OneToMany(cascade = {CascadeType.MERGE}, orphanRemoval = true,
+            mappedBy = "hall")
     private Set<Exhibit> exhibits;
 
-    @ManyToMany (mappedBy = "halls")
+
+    @ManyToMany(cascade = {CascadeType.MERGE})
+    @JoinTable(name = "employee_hall",
+            joinColumns = {@JoinColumn(nullable = false, name = "hall_id")},
+            inverseJoinColumns = {@JoinColumn(nullable = false, name = "empl_id")})
     private Set<Employee> employees;
 
     public Hall() {
     }
 
-    public Hall(String name) {
+    public Hall(String name, Set<Employee> employees) {
         this.name = name;
+        this.employees = employees;
     }
 
-    public Integer getHallId() {
-        return hallId;
+    public Integer getId() {
+        return id;
     }
 
-    public void setHallId(Integer hallId) {
-        this.hallId = hallId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -71,13 +75,13 @@ public final class Hall {
             return false;
         }
         Hall hall = (Hall) o;
-        return o.equals(hallId);
+        return o.equals(id);
     }
 
     @Override
     public int hashCode() {
         return new HashCodeBuilder(17, 37)
-                .append(hallId)
+                .append(id)
                 .toHashCode();
     }
 }
