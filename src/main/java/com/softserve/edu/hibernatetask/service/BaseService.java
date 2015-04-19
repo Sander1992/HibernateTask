@@ -1,5 +1,7 @@
 package com.softserve.edu.hibernatetask.service;
 
+import com.softserve.edu.hibernatetask.utils.PrettyOutput;
+
 import java.util.List;
 
 public interface BaseService<T> {
@@ -10,4 +12,5 @@ public interface BaseService<T> {
     T findById(Integer id);
     List<T> findAll();
     List<T> findByName(String name);
+    void showInfo();
 }

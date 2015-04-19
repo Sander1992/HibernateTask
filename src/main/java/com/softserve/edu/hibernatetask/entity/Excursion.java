@@ -57,7 +57,7 @@ public final class Excursion {
         this.duration = duration;
     }
 
-    @ManyToOne()
+    @ManyToOne
     @JoinColumn(nullable = false, name = "empl_id")
     public Employee getEmployee() {
         return employee;

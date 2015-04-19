@@ -8,8 +8,6 @@ import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaQuery;
 import java.util.List;
 
-import static com.softserve.edu.hibernatetask.utils.Configurator.getEntityManagerFactory;
-
 public class BaseDataAccess<T> implements BaseDAO<T> {
 
     private final Class<T> entityClass;
