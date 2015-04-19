@@ -6,12 +6,24 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(uniqueConstraints = {
-})
-public final class Hall {
+public class Hall {
+
+    @Id
+    @GeneratedValue (strategy = GenerationType.AUTO)
     private Integer id;
+
+    @Column(nullable = false)
     private String name;
+
+    @OneToMany(cascade = {CascadeType.MERGE}, orphanRemoval = true,
+            mappedBy = "hall")
     private Set<Exhibit> exhibits;
+
+
+    @ManyToMany(cascade = {CascadeType.MERGE})
+    @JoinTable(name = "employee_hall",
+            joinColumns = {@JoinColumn(nullable = false, name = "hall_id")},
+            inverseJoinColumns = {@JoinColumn(nullable = false, name = "empl_id")})
     private Set<Employee> employees;
 
     public Hall() {
@@ -22,8 +34,6 @@ public final class Hall {
         this.employees = employees;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer getId() {
         return id;
     }
@@ -40,8 +50,6 @@ public final class Hall {
         this.name = name;
     }
 
-    @OneToMany(cascade = {CascadeType.MERGE}, orphanRemoval = true,
-            mappedBy = "hall")
     public Set<Exhibit> getExhibits() {
         return exhibits;
     }
@@ -50,10 +58,6 @@ public final class Hall {
         this.exhibits = exhibits;
     }
 
-    @ManyToMany(cascade = {CascadeType.MERGE})
-    @JoinTable(name = "employee_hall",
-            joinColumns = {@JoinColumn(name = "hall_id")},
-            inverseJoinColumns = {@JoinColumn(nullable = false, name = "empl_id")})
     public Set<Employee> getEmployees() {
         return employees;
     }

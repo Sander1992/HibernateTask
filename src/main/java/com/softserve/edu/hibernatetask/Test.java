@@ -36,7 +36,7 @@ public class Test {
         hallService.insert(hall);
         employeeService.showInfo();
         hallService.showInfo();
-        Excursion ex = new Excursion("Lviv", DateHandler.parseDate("18.04.2015"), "3 days", first);
+        Excursion ex = new Excursion("Lviv", "Mon Tue Fri", "3 days", first);
         ExcursionService excursionService = new MuseumExcursionService();
         excursionService.insert(ex);
         excursionService.showInfo();

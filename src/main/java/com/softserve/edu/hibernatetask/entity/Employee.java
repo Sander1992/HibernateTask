@@ -7,12 +7,22 @@ import java.math.BigDecimal;
 import java.util.Set;
 
 @Entity
-public final class Employee {
+public class Employee{
+
+    @Id
+    @GeneratedValue (strategy = GenerationType.AUTO)
     private Integer id;
+
+    @Column(nullable = false)
     private String name;
     private BigDecimal salary;
     private String position;
+
+    @OneToMany(cascade = {CascadeType.MERGE}, orphanRemoval = true,
+            mappedBy = "employee")
     private Set<Excursion> excursions;
+
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, mappedBy = "employees")
     private Set<Hall> halls;
 
     public Employee() {
@@ -24,6 +34,7 @@ public final class Employee {
         this.position = position;
     }
 
+
     public String getPosition() {
         return position;
     }
@@ -32,8 +43,7 @@ public final class Employee {
         this.position = position;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+
     public Integer getId() {
         return id;
     }
@@ -42,7 +52,7 @@ public final class Employee {
         this.id = id;
     }
 
-    @Column(nullable = false)
+
     public String getName() {
         return name;
     }
@@ -59,8 +69,7 @@ public final class Employee {
         this.salary = salary;
     }
 
-    @OneToMany(cascade = {CascadeType.MERGE}, orphanRemoval = true,
-            mappedBy = "employee")
+
     public Set<Excursion> getExcursions() {
         return excursions;
     }
@@ -69,7 +78,7 @@ public final class Employee {
         this.excursions = excursions;
     }
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, mappedBy = "employees")
+
     public Set<Hall> getHalls() {
         return halls;
     }

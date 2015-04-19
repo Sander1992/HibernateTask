@@ -3,37 +3,41 @@ package com.softserve.edu.hibernatetask.entity;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
-public final class Excursion {
+public class Excursion {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+
+    @Column(nullable = false)
     private String name;
-    private Date schedule;
+    private String schedule;
     private String duration;
+
+    @ManyToOne
+    @JoinColumn(nullable = false, name = "EMPL_ID")
     private Employee employee;
 
     public Excursion() {
     }
 
-    public Excursion(String name, Date schedule, String duration, Employee employee) {
+    public Excursion(String name, String schedule, String duration, Employee employee) {
         this.name = name;
         this.schedule = schedule;
         this.duration = duration;
         this.employee = employee;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer getId() {
         return id;
     }
 
-    public void setId(Integer excurId) {
-        this.id = excurId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    @Column(nullable = false)
     public String getName() {
         return name;
     }
@@ -42,11 +46,11 @@ public final class Excursion {
         this.name = name;
     }
 
-    public Date getSchedule() {
+    public String getSchedule() {
         return schedule;
     }
 
-    public void setSchedule(Date schedule) {
+    public void setSchedule(String schedule) {
         this.schedule = schedule;
     }
 
@@ -58,8 +62,6 @@ public final class Excursion {
         this.duration = duration;
     }
 
-    @ManyToOne
-    @JoinColumn(nullable = false, name = "empl_id")
     public Employee getEmployee() {
         return employee;
     }
@@ -81,7 +83,7 @@ public final class Excursion {
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode () {
         return new HashCodeBuilder(17, 37)
                 .append(id)
                 .toHashCode();

@@ -2,7 +2,6 @@ package com.softserve.edu.hibernatetask.service.impl;
 
 import com.softserve.edu.hibernatetask.entity.Excursion;
 import com.softserve.edu.hibernatetask.service.ExcursionService;
-import com.softserve.edu.hibernatetask.utils.DateHandler;
 
 import java.util.List;
 
@@ -19,7 +18,7 @@ public final class MuseumExcursionService extends MuseumBaseService<Excursion> i
         displayInfo("Excursions available");
         displayColumns("Name", "Schedule", "Duration", "Responsible");
         displayDelimiter();
-        employees.forEach(e -> displayColumns(e.getName(), DateHandler.getPrettyDate(e.getSchedule()),
+        employees.forEach(e -> displayColumns(e.getName(), e.getSchedule(),
                 e.getDuration(), e.getEmployee()));
         displayDelimiter();
     }

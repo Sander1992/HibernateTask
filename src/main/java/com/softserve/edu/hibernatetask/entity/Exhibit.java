@@ -6,10 +6,21 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-public final class Exhibit {
+public class Exhibit {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+
+    @Column(nullable = false)
     private String name;
+
+    @ManyToOne(cascade = {CascadeType.MERGE})
+    @JoinColumn(nullable = false, name = "hall_id")
     private Hall hall;
+
+    @Column (nullable = false)
+    @Temporal(TemporalType.DATE)
     private Date date;
     private String material;
     private String author;
@@ -18,8 +29,7 @@ public final class Exhibit {
     public Exhibit() {
     }
 
-    public Exhibit(String name, Date date, String material, String author, String technic,
-            Hall hall) {
+    public Exhibit(String name, Date date, String material, String author, String technic, Hall hall) {
         this.name = name;
         this.date = date;
         this.material = material;
@@ -28,17 +38,14 @@ public final class Exhibit {
         this.hall = hall;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer getId() {
         return id;
     }
 
-    public void setId(Integer exhibitId) {
-        this.id = exhibitId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    @Column(nullable = false)
     public String getName() {
         return name;
     }
@@ -67,7 +74,6 @@ public final class Exhibit {
         this.material = material;
     }
 
-    @Column(nullable = false)
     public String getAuthor() {
         return author;
     }
@@ -76,8 +82,6 @@ public final class Exhibit {
         this.author = author;
     }
 
-    @ManyToOne(cascade = {CascadeType.MERGE})
-    @JoinColumn(nullable = false, name = "hall_id")
     public Hall getHall() {
         return hall;
     }
