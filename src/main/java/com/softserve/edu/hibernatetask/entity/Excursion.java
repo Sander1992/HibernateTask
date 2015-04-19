@@ -5,7 +5,7 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
 import javax.persistence.*;
 
 @Entity
-public class Excursion {
+public class Excursion implements MuseumEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -16,8 +16,8 @@ public class Excursion {
     private String schedule;
     private String duration;
 
-    @ManyToOne
-    @JoinColumn(nullable = false, name = "EMPL_ID")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(nullable = false, name = "empl_id")
     private Employee employee;
 
     public Excursion() {
@@ -83,7 +83,7 @@ public class Excursion {
     }
 
     @Override
-    public int hashCode () {
+    public int hashCode() {
         return new HashCodeBuilder(17, 37)
                 .append(id)
                 .toHashCode();

@@ -1,6 +1,7 @@
 package com.softserve.edu.hibernatetask.dao.impl;
 
 import com.softserve.edu.hibernatetask.dao.BaseDAO;
+import com.softserve.edu.hibernatetask.entity.MuseumEntity;
 import com.softserve.edu.hibernatetask.utils.RecordFinder;
 
 import javax.persistence.EntityManager;
@@ -8,7 +9,7 @@ import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaQuery;
 import java.util.List;
 
-public class BaseDataAccess<T> implements BaseDAO<T> {
+public class BaseDataAccess<T extends MuseumEntity> implements BaseDAO<T> {
 
     private final Class<T> entityClass;
     private final EntityManager entityManager;
@@ -54,5 +55,10 @@ public class BaseDataAccess<T> implements BaseDAO<T> {
     @Override
     public List<T> findByName(String name) {
         return RecordFinder.find(entityClass, "name", name, entityManager);
+    }
+
+    @Override
+    public T getManaged(T entity) {
+        return findById(entity.getId());
     }
 }

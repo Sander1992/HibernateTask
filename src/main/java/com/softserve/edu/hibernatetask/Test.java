@@ -22,7 +22,22 @@ import java.util.Arrays;
 import java.util.HashSet;
 
 public class Test {
-    public static void main(String[] args) throws ParseException {
+    public static void main(String[] args) {
+        try {
+            Employee emp = new Employee("Dmytro", BigDecimal.valueOf(1000.0), "Analysist");
+            EmployeeService employeeService = new MuseumEmployeeService();
+            employeeService.insert(emp);
+            Excursion first = new Excursion("Lviv", "Thu, Wed", "1 week", emp);
+            Excursion second = new Excursion("Kyiv", "Thu, Wed", "2 week", emp);
+            ExcursionService excursionService = new MuseumExcursionService();
+            excursionService.insert(first);
+            excursionService.insert(second);
+        } finally {
+            Configurator.closeSession();
+        }
+    }
+
+    private static void mainTest() {
         PrettyOutput.disableLogger();
         Employee first = new Employee("Dmytro", BigDecimal.valueOf(1000000.0), "Chief");
         Employee second = new Employee("Yurii", BigDecimal.valueOf(100000.0), "Tech Lead");
@@ -45,6 +60,5 @@ public class Test {
         ExhibitService exhibitService = new MuseumExhibitService();
         exhibitService.insert(exhibit);
         exhibitService.showInfo();
-        Configurator.closeSession();
     }
 }

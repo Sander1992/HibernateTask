@@ -16,7 +16,7 @@ public final class PrettyOutput {
 
     public static void displayInfo(String info) {
         displayDelimiter();
-        System.out.printf("%" + WIDTH * 3 + "s\n", info);
+        System.out.printf("%" + WIDTH * MAX_NUMBER_OF_FIELDS / 2 + "s\n", info);
         displayDelimiter();
     }
 

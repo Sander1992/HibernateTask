@@ -4,13 +4,13 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-public class Employee{
-
+public class Employee implements MuseumEntity {
     @Id
-    @GeneratedValue (strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     @Column(nullable = false)
@@ -18,12 +18,11 @@ public class Employee{
     private BigDecimal salary;
     private String position;
 
-    @OneToMany(cascade = {CascadeType.MERGE}, orphanRemoval = true,
-            mappedBy = "employee")
-    private Set<Excursion> excursions;
+    @OneToMany(cascade = {CascadeType.ALL}, mappedBy = "employee")
+    private Set<Excursion> excursions = new HashSet<>();
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, mappedBy = "employees")
-    private Set<Hall> halls;
+    @ManyToMany(cascade = {CascadeType.ALL}, mappedBy = "employees")
+    private Set<Hall> halls = new HashSet<>();
 
     public Employee() {
     }
@@ -34,7 +33,6 @@ public class Employee{
         this.position = position;
     }
 
-
     public String getPosition() {
         return position;
     }
@@ -43,7 +41,6 @@ public class Employee{
         this.position = position;
     }
 
-
     public Integer getId() {
         return id;
     }
@@ -51,7 +48,6 @@ public class Employee{
     public void setId(Integer id) {
         this.id = id;
     }
-
 
     public String getName() {
         return name;
@@ -69,7 +65,6 @@ public class Employee{
         this.salary = salary;
     }
 
-
     public Set<Excursion> getExcursions() {
         return excursions;
     }
@@ -77,7 +72,6 @@ public class Employee{
     public void setExcursions(Set<Excursion> excursions) {
         this.excursions = excursions;
     }
-
 
     public Set<Hall> getHalls() {
         return halls;
