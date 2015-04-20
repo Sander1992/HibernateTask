@@ -12,17 +12,18 @@ import static com.softserve.edu.hibernatetask.utils.PrettyOutput.*;
 
 public final class MuseumHallService extends MuseumBaseService<Hall> implements HallService {
     private final EntityManager entityManager = Configurator.getEntityManager();
+
     public MuseumHallService() {
         super(Hall.class);
     }
 
     @Override
     public void showAll() {
-            List<Hall> employees = new BaseDataAccess<Hall>(Hall.class).findAll();
-            displayInfo("Halls of our museum");
-            displayColumns("Name", "Responsible staff");
-            displayDelimiter();
-            employees.forEach(e -> displayColumns(e.getName(), e.getEmployees()));
-            displayDelimiter();
+        List<Hall> employees = new BaseDataAccess<Hall>(Hall.class).findAll();
+        displayInfo("Halls of our museum");
+        displayColumns("Name", "Responsible staff");
+        displayDelimiter();
+        employees.forEach(e -> displayColumns(e.getName(), e.getEmployees()));
+        displayDelimiter();
     }
 }

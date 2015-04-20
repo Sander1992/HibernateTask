@@ -16,7 +16,7 @@ public class Excursion {
     private String schedule;
     private String duration;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(nullable = false, name = "empl_id")
     private Employee employee;
 

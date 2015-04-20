@@ -18,10 +18,10 @@ public class Employee {
     private BigDecimal salary;
     private String position;
 
-    @OneToMany(cascade = {CascadeType.ALL}, mappedBy = "employee")
+    @OneToMany(cascade = {CascadeType.ALL}, mappedBy = "employee", orphanRemoval = true)
     private Set<Excursion> excursions = new HashSet<>();
 
-    @ManyToMany(cascade = {CascadeType.ALL}, mappedBy = "employees")
+    @ManyToMany(mappedBy = "employees")
     private Set<Hall> halls = new HashSet<>();
 
     public Employee() {

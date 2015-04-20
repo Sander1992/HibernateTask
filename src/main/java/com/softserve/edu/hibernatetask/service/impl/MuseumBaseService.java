@@ -52,17 +52,13 @@ public abstract class MuseumBaseService<T> implements BaseService<T> {
 
     @Override
     public T findById(Integer id) {
-        entityManager.getTransaction().begin();
         T result = new BaseDataAccess<T>(entityClass).findById(id);
-        entityManager.getTransaction().commit();
         return result;
     }
 
     @Override
     public List<T> findAll() {
-        entityManager.getTransaction().begin();
         List<T> result = new BaseDataAccess<T>(entityClass).findAll();
-        entityManager.getTransaction().commit();
         return result;
     }
 

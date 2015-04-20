@@ -22,14 +22,17 @@ import java.util.HashSet;
 public class Test {
     public static void main(String[] args) {
         try {
-            Employee first = new Employee("Dmytro", BigDecimal.valueOf(1000000.0), "Chief");
+            /*Employee first = new Employee("Dmytro", BigDecimal.valueOf(1000000.0), "Chief");
             Excursion ex = new Excursion("Lviv", "Mon Tue Fri", "3 days", first);
             ExcursionService excursionService = new MuseumExcursionService();
             excursionService.insert(ex);
             excursionService.showAll();
             EmployeeService employeeService = new MuseumEmployeeService();
             employeeService.update(first);
-            System.out.println(first.getExcursions());
+            System.out.println(first.getExcursions());*/
+            mainTest();
+            EmployeeService employeeService = new MuseumEmployeeService();
+            employeeService.delete(employeeService.findByName("Bohdan").get(0));
         } finally {
             Configurator.closeSession();
         }
