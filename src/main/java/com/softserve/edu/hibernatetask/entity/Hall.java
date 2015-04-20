@@ -21,7 +21,7 @@ public class Hall {
     private Set<Exhibit> exhibits = new HashSet<>();
     ;
 
-    @ManyToMany(cascade = {CascadeType.ALL})
+    @ManyToMany
     @JoinTable(name = "employee_hall",
             joinColumns = {@JoinColumn(nullable = false, name = "hall_id")},
             inverseJoinColumns = {@JoinColumn(nullable = false, name = "empl_id")})
