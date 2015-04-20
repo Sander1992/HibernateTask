@@ -25,9 +25,9 @@ public final class MuseumEmployeeService extends MuseumBaseService<Employee> imp
     public void showAll() {
         List<Employee> employees = findAll();
         displayInfo("Our staff");
-        displayColumns("Name", "Position");
+        displayColumns("Id", "Name", "Position");
         displayDelimiter();
-        employees.forEach(e -> displayColumns(e.getName(), e.getPosition()));
+        employees.forEach(e -> displayColumns(e.getId(), e.getName(), e.getPosition()));
         displayDelimiter();
     }
 

@@ -3,10 +3,7 @@ package com.softserve.edu.hibernatetask.ui.menus;
 import com.softserve.edu.hibernatetask.ui.commandCore.CommandCollection;
 import com.softserve.edu.hibernatetask.ui.commandCore.IMenu;
 import com.softserve.edu.hibernatetask.ui.commandCore.Menu;
-import com.softserve.edu.hibernatetask.ui.commands.dataBaseCommands.employeeCommands.CreateEmployeeCommand;
-import com.softserve.edu.hibernatetask.ui.commands.dataBaseCommands.employeeCommands.DeleteEmployeeCommand;
-import com.softserve.edu.hibernatetask.ui.commands.dataBaseCommands.employeeCommands.FindByNameEmployeeCommand;
-import com.softserve.edu.hibernatetask.ui.commands.dataBaseCommands.employeeCommands.GetAllEmploeeCommand;
+import com.softserve.edu.hibernatetask.ui.commands.dataBaseCommands.employeeCommands.*;
 
 /**
  * Created by Sander on 20.04.2015.
@@ -16,9 +13,12 @@ public class EmployeeMenu implements IMenu {
         public void execute()  {
             CommandCollection employeeCommandCollection = new CommandCollection();
             employeeCommandCollection.addTask(new GetAllEmploeeCommand());
-            employeeCommandCollection.addTask(new DeleteEmployeeCommand());
+            employeeCommandCollection.addTask(new DeleteByNameEmployeeCommand());
+            employeeCommandCollection.addTask(new DeleteByIdEmployeeCommand());
             employeeCommandCollection.addTask(new CreateEmployeeCommand());
             employeeCommandCollection.addTask(new FindByNameEmployeeCommand());
+            employeeCommandCollection.addTask(new FindByIDEmployeeCommand());
+
 
 
             new Menu(employeeCommandCollection).runApplication();
