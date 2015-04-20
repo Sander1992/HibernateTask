@@ -3,28 +3,29 @@ package com.softserve.edu.hibernatetask.entity;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-public class Hall {
+public class Hall implements MuseumEntity {
 
     @Id
-    @GeneratedValue (strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     @Column(nullable = false)
     private String name;
 
-    @OneToMany(cascade = {CascadeType.MERGE}, orphanRemoval = true,
+    @OneToMany(cascade = {CascadeType.ALL}, orphanRemoval = true,
             mappedBy = "hall")
-    private Set<Exhibit> exhibits;
+    private Set<Exhibit> exhibits = new HashSet<>();
+    ;
 
-
-    @ManyToMany(cascade = {CascadeType.MERGE})
+    @ManyToMany(cascade = {CascadeType.ALL})
     @JoinTable(name = "employee_hall",
             joinColumns = {@JoinColumn(nullable = false, name = "hall_id")},
             inverseJoinColumns = {@JoinColumn(nullable = false, name = "empl_id")})
-    private Set<Employee> employees;
+    private Set<Employee> employees = new HashSet<>();
 
     public Hall() {
     }

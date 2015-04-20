@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-public class Exhibit {
+public class Exhibit implements MuseumEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -15,11 +15,11 @@ public class Exhibit {
     @Column(nullable = false)
     private String name;
 
-    @ManyToOne(cascade = {CascadeType.MERGE})
+    @ManyToOne(cascade = {CascadeType.ALL})
     @JoinColumn(nullable = false, name = "hall_id")
     private Hall hall;
 
-    @Column (nullable = false)
+    @Column(nullable = false)
     @Temporal(TemporalType.DATE)
     private Date date;
     private String material;

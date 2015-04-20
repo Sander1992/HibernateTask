@@ -1,6 +1,7 @@
 package com.softserve.edu.hibernatetask.service.impl;
 
 import com.softserve.edu.hibernatetask.dao.impl.BaseDataAccess;
+import com.softserve.edu.hibernatetask.entity.MuseumEntity;
 import com.softserve.edu.hibernatetask.service.BaseService;
 import com.softserve.edu.hibernatetask.utils.RecordFinder;
 
@@ -9,7 +10,7 @@ import java.util.List;
 
 import static com.softserve.edu.hibernatetask.utils.Configurator.getEntityManagerFactory;
 
-public abstract class MuseumBaseService<T> implements BaseService<T> {
+public abstract class MuseumBaseService<T extends MuseumEntity> implements BaseService<T> {
 
     private final Class<T> entityClass;
 

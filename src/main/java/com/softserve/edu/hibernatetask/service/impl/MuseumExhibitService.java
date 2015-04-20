@@ -24,4 +24,5 @@ public final class MuseumExhibitService extends MuseumBaseService<Exhibit> imple
                 e.getMaterial(), e.getTechnic()));
         displayDelimiter();
     }
+
 }
