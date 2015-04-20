@@ -32,24 +32,25 @@ public class Test {
     private static void mainTest() {
         PrettyOutput.disableLogger();
         Employee first = new Employee("Dmytro", BigDecimal.valueOf(1000000.0), "Chief");
-        /*Employee second = new Employee("Yurii", BigDecimal.valueOf(100000.0), "Tech Lead");
-        Employee third = new Employee("Bohdan", BigDecimal.valueOf(10000.0), "Senior Engineer");*/
+        Employee second = new Employee("Yurii", BigDecimal.valueOf(100000.0), "Tech Lead");
+        Employee third = new Employee("Bohdan", BigDecimal.valueOf(10000.0), "Senior Engineer");
         EmployeeService employeeService = new MuseumEmployeeService();
-   /*     employeeService.insert(second);
-        employeeService.insert(third);*/
-        /*Hall hall = new Hall("Main hall", new HashSet<>(Arrays.asList(first, second, third)));
+        employeeService.persist(first);
+        employeeService.persist(second);
+        employeeService.persist(third);
+        Hall hall = new Hall("Main hall", new HashSet<>(Arrays.asList(first, second, third)));
         HallService hallService = new MuseumHallService();
         hallService.insert(hall);
-        hallService.showAll();*/
+        hallService.showAll();
         Excursion ex = new Excursion("Lviv", "Mon Tue Fri", "3 days", first);
         ExcursionService excursionService = new MuseumExcursionService();
         excursionService.insert(ex);
         excursionService.showAll();
-        /*Exhibit exhibit = new Exhibit("Mona Lisa", DateHandler.parseDate("28.04.2015"), "Painting", "Leonardo da " +
+        Exhibit exhibit = new Exhibit("Mona Lisa", DateHandler.parseDate("28.04.2015"), "Painting", "Leonardo da " +
                 "Vinci", "Surrealism", hall);
         ExhibitService exhibitService = new MuseumExhibitService();
         exhibitService.insert(exhibit);
-        exhibitService.showAll();*/
+        exhibitService.showAll();
         employeeService.showAll();
     }
 }

@@ -9,7 +9,7 @@ import com.softserve.edu.hibernatetask.ui.commandCore.Command;
 public class GetAllEmploee implements Command{
     @Override
     public void execute() {
-        new MuseumEmployeeService().showInfo();
+        new MuseumEmployeeService().showAll();
     }
 
     @Override
