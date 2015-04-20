@@ -1,7 +1,6 @@
 package com.softserve.edu.hibernatetask.dao.impl;
 
 import com.softserve.edu.hibernatetask.dao.ExcursionDAO;
-import com.softserve.edu.hibernatetask.entity.Employee;
 import com.softserve.edu.hibernatetask.entity.Excursion;
 import com.softserve.edu.hibernatetask.utils.RecordFinder;
 
