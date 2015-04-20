@@ -5,7 +5,7 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
 import javax.persistence.*;
 
 @Entity
-public class Excursion implements MuseumEntity {
+public class Excursion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

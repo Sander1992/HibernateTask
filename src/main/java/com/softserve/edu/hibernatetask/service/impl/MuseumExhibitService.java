@@ -1,14 +1,11 @@
 package com.softserve.edu.hibernatetask.service.impl;
 
-import com.softserve.edu.hibernatetask.dao.impl.ExhibitDataAccess;
 import com.softserve.edu.hibernatetask.entity.Exhibit;
 import com.softserve.edu.hibernatetask.service.ExhibitService;
 import com.softserve.edu.hibernatetask.utils.DateHandler;
 
-import javax.persistence.EntityManager;
 import java.util.List;
 
-import static com.softserve.edu.hibernatetask.utils.Configurator.getEntityManagerFactory;
 import static com.softserve.edu.hibernatetask.utils.PrettyOutput.*;
 
 public final class MuseumExhibitService extends MuseumBaseService<Exhibit> implements ExhibitService {

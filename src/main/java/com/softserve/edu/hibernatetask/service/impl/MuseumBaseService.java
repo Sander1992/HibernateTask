@@ -2,106 +2,72 @@ package com.softserve.edu.hibernatetask.service.impl;
 
 import com.softserve.edu.hibernatetask.dao.BaseDAO;
 import com.softserve.edu.hibernatetask.dao.impl.BaseDataAccess;
-import com.softserve.edu.hibernatetask.entity.MuseumEntity;
 import com.softserve.edu.hibernatetask.service.BaseService;
+import com.softserve.edu.hibernatetask.utils.Configurator;
 import com.softserve.edu.hibernatetask.utils.RecordFinder;
 
 import javax.persistence.EntityManager;
 import java.util.List;
 
-import static com.softserve.edu.hibernatetask.utils.Configurator.getEntityManagerFactory;
+import static com.softserve.edu.hibernatetask.utils.Configurator.getEntityManager;
 
-public abstract class MuseumBaseService<T extends MuseumEntity> implements BaseService<T> {
+public abstract class MuseumBaseService<T> implements BaseService<T> {
 
     private final Class<T> entityClass;
+    private final EntityManager entityManager = Configurator.getEntityManager();
 
     public MuseumBaseService(Class<T> entityClass) {
         this.entityClass = entityClass;
     }
 
     @Override
-    public void persist(T entity) {
-        EntityManager entityManager = getEntityManagerFactory().createEntityManager();
-        try {
-            entityManager.getTransaction().begin();
-            new BaseDataAccess<T>(entityClass, entityManager).insert(entity);
-            entityManager.getTransaction().commit();
-        } finally {
-            entityManager.close();
-        }
+    public void insert(T entity) {
+        entityManager.getTransaction().begin();
+        new BaseDataAccess<T>(entityClass).insert(entity);
+        entityManager.getTransaction().commit();
     }
 
     @Override
     public void delete(T entity) {
-        EntityManager entityManager = getEntityManagerFactory().createEntityManager();
-        try {
-            entityManager.getTransaction().begin();
-            BaseDAO<T> baseDAO = new BaseDataAccess(entityClass, entityManager);
-            baseDAO.delete(entity);
-            entityManager.getTransaction().commit();
-        } finally {
-            entityManager.close();
-        }
+        entityManager.getTransaction().begin();
+        BaseDAO<T> baseDAO = new BaseDataAccess(entityClass);
+        baseDAO.delete(entity);
+        entityManager.getTransaction().commit();
     }
 
     @Override
-    public T insert(T entity) {
-        EntityManager entityManager = getEntityManagerFactory().createEntityManager();
-        try {
-            entityManager.getTransaction().begin();
-            T result = new BaseDataAccess<T>(entityClass, entityManager).merge(entity);
-            entityManager.getTransaction().commit();
-            return result;
-        } finally {
-            entityManager.close();
-        }
+    public T merge(T entity) {
+        entityManager.getTransaction().begin();
+        T result = new BaseDataAccess<T>(entityClass).merge(entity);
+        entityManager.getTransaction().commit();
+        return result;
     }
 
     @Override
     public void update(T entity) {
-        EntityManager entityManager = getEntityManagerFactory().createEntityManager();
-        try {
-            entityManager.getTransaction().begin();
-            new BaseDataAccess<T>(entityClass, entityManager).update(entity);
-            entityManager.getTransaction().commit();
-        } finally {
-            entityManager.close();
-        }
+        entityManager.getTransaction().begin();
+        new BaseDataAccess<T>(entityClass).update(entity);
+        entityManager.getTransaction().commit();
     }
 
     @Override
     public T findById(Integer id) {
-        EntityManager entityManager = getEntityManagerFactory().createEntityManager();
-        try {
-            entityManager.getTransaction().begin();
-            T result = new BaseDataAccess<T>(entityClass, entityManager).findById(id);
-            entityManager.getTransaction().commit();
-            return result;
-        } finally {
-            entityManager.close();
-        }
+        entityManager.getTransaction().begin();
+        T result = new BaseDataAccess<T>(entityClass).findById(id);
+        entityManager.getTransaction().commit();
+        return result;
     }
 
     @Override
     public List<T> findAll() {
-        EntityManager entityManager = getEntityManagerFactory().createEntityManager();
-        try {
-            entityManager.getTransaction().begin();
-            List<T> result = new BaseDataAccess<T>(entityClass, entityManager).findAll();
-            entityManager.getTransaction().commit();
-            return result;
-        } finally {
-            entityManager.close();
-        }
+        entityManager.getTransaction().begin();
+        List<T> result = new BaseDataAccess<T>(entityClass).findAll();
+        entityManager.getTransaction().commit();
+        return result;
     }
 
     @Override
     public List<T> findByName(String name) {
-        EntityManager entityManager = getEntityManagerFactory().createEntityManager();
-        try {
-            return RecordFinder.find(entityClass, "name", name, entityManager);
-        } finally {
-            entityManager.close();
-        }
+        return RecordFinder.find(entityClass, "name", name);
     }
 }

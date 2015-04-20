@@ -1,15 +1,10 @@
 package com.softserve.edu.hibernatetask.service.impl;
 
-import com.softserve.edu.hibernatetask.dao.impl.EmployeeDataAccess;
-import com.softserve.edu.hibernatetask.dao.impl.ExcursionDataAccess;
 import com.softserve.edu.hibernatetask.entity.Excursion;
 import com.softserve.edu.hibernatetask.service.ExcursionService;
 
-import javax.persistence.EntityManager;
 import java.util.List;
-import java.util.Set;
 
-import static com.softserve.edu.hibernatetask.utils.Configurator.getEntityManagerFactory;
 import static com.softserve.edu.hibernatetask.utils.PrettyOutput.*;
 
 public final class MuseumExcursionService extends MuseumBaseService<Excursion> implements ExcursionService {

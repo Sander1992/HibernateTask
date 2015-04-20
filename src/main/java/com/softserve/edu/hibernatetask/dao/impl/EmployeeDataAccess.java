@@ -8,15 +8,12 @@ import javax.persistence.EntityManager;
 import java.util.List;
 
 public final class EmployeeDataAccess extends BaseDataAccess<Employee> implements EmployeeDAO {
-    private final EntityManager entityManager;
-
-    public EmployeeDataAccess(EntityManager entityManager) {
-        super(Employee.class, entityManager);
-        this.entityManager = entityManager;
+    public EmployeeDataAccess() {
+        super(Employee.class);
     }
 
     @Override
     public List<Employee> findByPosition(String position) {
-        return RecordFinder.find(Employee.class, "position", position, entityManager);
+        return RecordFinder.find(Employee.class, "position", position);
     }
 }

@@ -1,7 +1,7 @@
 package com.softserve.edu.hibernatetask.dao.impl;
 
 import com.softserve.edu.hibernatetask.dao.BaseDAO;
-import com.softserve.edu.hibernatetask.entity.MuseumEntity;
+import com.softserve.edu.hibernatetask.utils.Configurator;
 import com.softserve.edu.hibernatetask.utils.RecordFinder;
 
 import javax.persistence.EntityManager;
@@ -10,14 +10,13 @@ import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaQuery;
 import java.util.List;
 
-public class BaseDataAccess<T extends MuseumEntity> implements BaseDAO<T> {
+public class BaseDataAccess<T> implements BaseDAO<T> {
 
     private final Class<T> entityClass;
-    private final EntityManager entityManager;
+    private final EntityManager entityManager = Configurator.getEntityManager();
 
-    public BaseDataAccess(Class<T> table, EntityManager entityManager) {
+    public BaseDataAccess(Class<T> table) {
         this.entityClass = table;
-        this.entityManager = entityManager;
     }
 
     @Override
@@ -27,7 +26,7 @@ public class BaseDataAccess<T extends MuseumEntity> implements BaseDAO<T> {
 
     @Override
     public void delete(T entity) {
-        entityManager.remove(toManaged(entity));
+        entityManager.remove(entity);
     }
 
     @Override
@@ -55,11 +54,6 @@ public class BaseDataAccess<T extends MuseumEntity> implements BaseDAO<T> {
 
     @Override
     public List<T> findByName(String name) {
-        return RecordFinder.find(entityClass, "name", name, entityManager);
-    }
-
-    @Override
-    public T toManaged(T entity) {
-        return findById(entity.getId());
+        return RecordFinder.find(entityClass, "name", name);
     }
 }

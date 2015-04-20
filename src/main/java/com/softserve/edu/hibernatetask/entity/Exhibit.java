@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-public class Exhibit implements MuseumEntity {
+public class Exhibit {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
