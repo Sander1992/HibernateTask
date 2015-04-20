@@ -18,7 +18,7 @@ public final class MuseumExcursionService extends MuseumBaseService<Excursion> i
     }
 
     @Override
-    public void showInfo() {
+    public void showAll() {
         List<Excursion> employees = findAll();
         displayInfo("Excursions available");
         displayColumns("Name", "Schedule", "Duration", "Responsible");
@@ -26,18 +26,5 @@ public final class MuseumExcursionService extends MuseumBaseService<Excursion> i
         employees.forEach(e -> displayColumns(e.getName(), e.getSchedule(),
                 e.getDuration(), e.getEmployee()));
         displayDelimiter();
-    }
-
-    @Override
-    public void insert(Excursion entity) {
-        EntityManager entityManager = getEntityManagerFactory().createEntityManager();
-        try {
-            entityManager.getTransaction().begin();
-            entity.setEmployee(new EmployeeDataAccess(entityManager).getManaged(entity.getEmployee()));
-            new ExcursionDataAccess(entityManager).insert(entity);
-            entityManager.getTransaction().commit();
-        } finally {
-            entityManager.close();
-        }
     }
 }

@@ -1,5 +1,6 @@
 package com.softserve.edu.hibernatetask.service.impl;
 
+import com.softserve.edu.hibernatetask.dao.BaseDAO;
 import com.softserve.edu.hibernatetask.dao.impl.BaseDataAccess;
 import com.softserve.edu.hibernatetask.entity.MuseumEntity;
 import com.softserve.edu.hibernatetask.service.BaseService;
@@ -19,7 +20,7 @@ public abstract class MuseumBaseService<T extends MuseumEntity> implements BaseS
     }
 
     @Override
-    public void insert(T entity) {
+    public void persist(T entity) {
         EntityManager entityManager = getEntityManagerFactory().createEntityManager();
         try {
             entityManager.getTransaction().begin();
@@ -35,7 +36,8 @@ public abstract class MuseumBaseService<T extends MuseumEntity> implements BaseS
         EntityManager entityManager = getEntityManagerFactory().createEntityManager();
         try {
             entityManager.getTransaction().begin();
-            new BaseDataAccess(entityClass, entityManager).delete(entity);
+            BaseDAO<T> baseDAO = new BaseDataAccess(entityClass, entityManager);
+            baseDAO.delete(baseDAO.toManaged(entity));
             entityManager.getTransaction().commit();
         } finally {
             entityManager.close();
@@ -43,7 +45,7 @@ public abstract class MuseumBaseService<T extends MuseumEntity> implements BaseS
     }
 
     @Override
-    public T merge(T entity) {
+    public T insert(T entity) {
         EntityManager entityManager = getEntityManagerFactory().createEntityManager();
         try {
             entityManager.getTransaction().begin();

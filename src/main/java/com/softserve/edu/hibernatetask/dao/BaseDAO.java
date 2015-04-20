@@ -9,7 +9,7 @@ public interface BaseDAO<T extends MuseumEntity> {
     void delete(T entity);
     T merge(T entity);
     void update(T entity);
-    T getManaged(T entity);
+    T toManaged(T entity);
     T findById(Integer id);
     List<T> findAll();
     List<T> findByName(String name);

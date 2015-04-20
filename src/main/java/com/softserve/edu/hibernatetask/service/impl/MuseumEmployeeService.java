@@ -18,25 +18,12 @@ public final class MuseumEmployeeService extends MuseumBaseService<Employee> imp
     }
 
     @Override
-    public void showInfo() {
+    public void showAll() {
         List<Employee> employees = findAll();
         displayInfo("Our staff");
         displayColumns("Name", "Position");
         displayDelimiter();
         employees.forEach(e -> displayColumns(e.getName(), e.getPosition()));
         displayDelimiter();
-    }
-
-    @Override
-    public void delete(Employee entity) {
-        EntityManager entityManager = getEntityManagerFactory().createEntityManager();
-        try {
-            entityManager.getTransaction().begin();
-            EmployeeDAO employeeDAO = new EmployeeDataAccess(entityManager);
-            employeeDAO.delete(employeeDAO.getManaged(entity));
-            entityManager.getTransaction().commit();
-        } finally {
-            entityManager.close();
-        }
     }
 }

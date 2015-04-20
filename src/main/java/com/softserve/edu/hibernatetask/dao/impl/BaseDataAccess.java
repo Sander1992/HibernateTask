@@ -5,6 +5,7 @@ import com.softserve.edu.hibernatetask.entity.MuseumEntity;
 import com.softserve.edu.hibernatetask.utils.RecordFinder;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaQuery;
 import java.util.List;
@@ -58,7 +59,7 @@ public class BaseDataAccess<T extends MuseumEntity> implements BaseDAO<T> {
     }
 
     @Override
-    public T getManaged(T entity) {
+    public T toManaged(T entity) {
         return findById(entity.getId());
     }
 }

@@ -1,11 +1,14 @@
 package com.softserve.edu.hibernatetask.service.impl;
 
+import com.softserve.edu.hibernatetask.dao.impl.ExhibitDataAccess;
 import com.softserve.edu.hibernatetask.entity.Exhibit;
 import com.softserve.edu.hibernatetask.service.ExhibitService;
 import com.softserve.edu.hibernatetask.utils.DateHandler;
 
+import javax.persistence.EntityManager;
 import java.util.List;
 
+import static com.softserve.edu.hibernatetask.utils.Configurator.getEntityManagerFactory;
 import static com.softserve.edu.hibernatetask.utils.PrettyOutput.*;
 
 public final class MuseumExhibitService extends MuseumBaseService<Exhibit> implements ExhibitService {
@@ -14,15 +17,13 @@ public final class MuseumExhibitService extends MuseumBaseService<Exhibit> imple
     }
 
     @Override
-    public void showInfo() {
+    public void showAll() {
         List<Exhibit> employees = findAll();
         displayInfo("Exhibits of our museum");
         displayColumns("Name", "Date", "Hall", "Author", "Material", "Technic");
         displayDelimiter();
-        employees.forEach(e -> displayColumns(e.getName(), DateHandler.getPrettyDate(e.getDate()), e.getHall(), e
-                        .getAuthor(),
-                e.getMaterial(), e.getTechnic()));
+        employees.forEach(e -> displayColumns(e.getName(), DateHandler.getPrettyDate(e.getDate()),
+                e.getHall(), e.getAuthor(), e.getMaterial(), e.getTechnic()));
         displayDelimiter();
     }
-
 }

@@ -17,21 +17,13 @@ import com.softserve.edu.hibernatetask.utils.DateHandler;
 import com.softserve.edu.hibernatetask.utils.PrettyOutput;
 
 import java.math.BigDecimal;
-import java.text.ParseException;
 import java.util.Arrays;
 import java.util.HashSet;
 
 public class Test {
     public static void main(String[] args) {
         try {
-            Employee emp = new Employee("Dmytro", BigDecimal.valueOf(1000.0), "Analysist");
-            EmployeeService employeeService = new MuseumEmployeeService();
-            employeeService.insert(emp);
-            Excursion first = new Excursion("Lviv", "Thu, Wed", "1 week", emp);
-            Excursion second = new Excursion("Kyiv", "Thu, Wed", "2 week", emp);
-            ExcursionService excursionService = new MuseumExcursionService();
-            excursionService.insert(first);
-            excursionService.insert(second);
+            mainTest();
         } finally {
             Configurator.closeSession();
         }
@@ -49,16 +41,16 @@ public class Test {
         Hall hall = new Hall("Main hall", new HashSet<>(Arrays.asList(first, second, third)));
         HallService hallService = new MuseumHallService();
         hallService.insert(hall);
-        employeeService.showInfo();
-        hallService.showInfo();
+        employeeService.showAll();
+        hallService.showAll();
         Excursion ex = new Excursion("Lviv", "Mon Tue Fri", "3 days", first);
         ExcursionService excursionService = new MuseumExcursionService();
         excursionService.insert(ex);
-        excursionService.showInfo();
+        excursionService.showAll();
         Exhibit exhibit = new Exhibit("Mona Lisa", DateHandler.parseDate("28.04.2015"), "Painting", "Leonardo da " +
                 "Vinci", "Surrealism", hall);
         ExhibitService exhibitService = new MuseumExhibitService();
         exhibitService.insert(exhibit);
-        exhibitService.showInfo();
+        exhibitService.showAll();
     }
 }

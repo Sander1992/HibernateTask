@@ -12,7 +12,7 @@
             <property name="hibernate.connection.password" value="18129523"></property>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
             <property name="hibernate.hbm2ddl.auto" value="create"/>
-            <property name="hibernate.show_sql" value="true"></property>
+            <property name="hibernate.show_sql" value="false"></property>
             <property name="hibernate.format_sql" value="true"></property>
         </properties>
     </persistence-unit>
