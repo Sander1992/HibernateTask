@@ -12,6 +12,7 @@ public class MainMenu implements IMenu {
     public void execute()  {
         CommandCollection menuCollection = new CommandCollection();
         menuCollection.addTask(new EmployeeMenu());
+        menuCollection.addTask(new ExcursionMenu());
 
         new Menu(menuCollection).runApplication();
     }
