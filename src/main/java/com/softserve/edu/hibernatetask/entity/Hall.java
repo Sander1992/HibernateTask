@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-public class Hall implements MuseumEntity {
+public class Hall {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

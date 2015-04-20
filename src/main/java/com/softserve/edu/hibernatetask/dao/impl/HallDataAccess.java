@@ -9,15 +9,13 @@ import javax.persistence.EntityManager;
 import java.util.List;
 
 public final class HallDataAccess extends BaseDataAccess<Hall> implements HallDAO {
-    private final EntityManager entityManager;
+    public HallDataAccess() {
+        super(Hall.class);
 
-    public HallDataAccess(EntityManager entityManager) {
-        super(Hall.class, entityManager);
-        this.entityManager = entityManager;
     }
 
     @Override
     public List<Hall> findByResponsible(Integer respId) {
-        return RecordFinder.find(Hall.class, "respId", respId.toString(), entityManager);
+        return RecordFinder.find(Hall.class, "respId", respId.toString());
     }
 }
