@@ -1,6 +1,6 @@
 package com.softserve.edu.hibernatetask.ui.commands;
 
-import com.softserve.edu.hibernatetask.ui.commandcore.Command;
+import com.softserve.edu.hibernatetask.ui.commandCore.Command;
 
 
 public class ExitMenuCommand implements Command {

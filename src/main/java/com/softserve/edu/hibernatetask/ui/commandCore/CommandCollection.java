@@ -1,4 +1,4 @@
-package com.softserve.edu.hibernatetask.ui.commandcore;
+package com.softserve.edu.hibernatetask.ui.commandCore;
 
 import java.util.Map;
 import java.util.Set;
@@ -10,13 +10,13 @@ import java.util.TreeMap;
  */
 public class CommandCollection {
 
-    private Map<Integer, IMenuOption> menu = new TreeMap<>();
+    private Map<Integer, com.softserve.edu.hibernatetask.ui.commandCore.IMenuOption> menu = new TreeMap<>();
 
-    public void addTask(IMenuOption task) {
+    public void addTask(com.softserve.edu.hibernatetask.ui.commandCore.IMenuOption task) {
         menu.put(menu.size() + 1, task);
     }
 
-    public Set<Map.Entry<Integer, IMenuOption>> getCommands() {
+    public Set<Map.Entry<Integer, com.softserve.edu.hibernatetask.ui.commandCore.IMenuOption>> getCommands() {
         return menu.entrySet();
     }
 
@@ -24,7 +24,7 @@ public class CommandCollection {
         return menu.entrySet().size();
     }
 
-    public IMenuOption getByIndex(int index) {
+    public com.softserve.edu.hibernatetask.ui.commandCore.IMenuOption getByIndex(int index) {
         return menu.get(index);
     }
 }

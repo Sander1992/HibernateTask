@@ -1,4 +1,4 @@
-package com.softserve.edu.hibernatetask.ui.commandcore;
+package com.softserve.edu.hibernatetask.ui.commandCore;
 
 import com.softserve.edu.hibernatetask.ui.commands.ExitMenuCommand;
 
