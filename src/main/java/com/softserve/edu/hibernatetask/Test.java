@@ -14,7 +14,6 @@ import com.softserve.edu.hibernatetask.service.impl.MuseumExhibitService;
 import com.softserve.edu.hibernatetask.service.impl.MuseumHallService;
 import com.softserve.edu.hibernatetask.utils.Configurator;
 import com.softserve.edu.hibernatetask.utils.DateHandler;
-import com.softserve.edu.hibernatetask.utils.PrettyOutput;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
@@ -28,6 +27,8 @@ public class Test {
             ExcursionService excursionService = new MuseumExcursionService();
             excursionService.insert(ex);
             excursionService.showAll();
+            EmployeeService employeeService = new MuseumEmployeeService();
+            employeeService.update(first);
             System.out.println(first.getExcursions());
         } finally {
             Configurator.closeSession();
