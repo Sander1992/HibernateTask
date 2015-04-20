@@ -50,6 +50,7 @@ public abstract class MuseumBaseService<T extends MuseumEntity> implements BaseS
         try {
             entityManager.getTransaction().begin();
             T result = new BaseDataAccess<T>(entityClass, entityManager).merge(entity);
+            System.out.println(result.getId());
             entityManager.getTransaction().commit();
             return result;
         } finally {
