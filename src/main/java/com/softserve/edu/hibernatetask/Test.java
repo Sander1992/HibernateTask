@@ -24,6 +24,8 @@ public class Test {
     public static void main(String[] args) {
         try {
             mainTest();
+            EmployeeService employeeService = new MuseumEmployeeService();
+            employeeService.delete(employeeService.findByName("Bohdan").get(0));
         } finally {
             Configurator.closeSession();
         }
@@ -38,7 +40,7 @@ public class Test {
         employeeService.persist(first);
         employeeService.persist(second);
         employeeService.persist(third);
-        Hall hall = new Hall("Main hall", new HashSet<>(Arrays.asList(first, second, third)));
+      /*  Hall hall = new Hall("Main hall", new HashSet<>(Arrays.asList(first, second, third)));
         HallService hallService = new MuseumHallService();
         hallService.insert(hall);
         hallService.showAll();
@@ -51,6 +53,6 @@ public class Test {
         ExhibitService exhibitService = new MuseumExhibitService();
         exhibitService.insert(exhibit);
         exhibitService.showAll();
-        employeeService.showAll();
+        employeeService.showAll();*/
     }
 }

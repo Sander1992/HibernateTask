@@ -14,6 +14,7 @@ public final class HallDataAccess extends BaseDataAccess<Hall> implements HallDA
     public HallDataAccess(EntityManager entityManager) {
         super(Hall.class, entityManager);
         this.entityManager = entityManager;
+
     }
 
     @Override

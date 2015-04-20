@@ -1,4 +1,4 @@
-package com.softserve.edu.hibernatetask.ui.commandCore;
+package com.softserve.edu.hibernatetask.ui.commandcore;
 
 /**
  * Marker interface for command option that shows a result of a command if selected.

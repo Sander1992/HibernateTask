@@ -27,7 +27,7 @@ public class BaseDataAccess<T extends MuseumEntity> implements BaseDAO<T> {
 
     @Override
     public void delete(T entity) {
-        entityManager.remove(entity);
+        entityManager.remove(toManaged(entity));
     }
 
     @Override

@@ -37,7 +37,7 @@ public abstract class MuseumBaseService<T extends MuseumEntity> implements BaseS
         try {
             entityManager.getTransaction().begin();
             BaseDAO<T> baseDAO = new BaseDataAccess(entityClass, entityManager);
-            baseDAO.delete(baseDAO.toManaged(entity));
+            baseDAO.delete(entity);
             entityManager.getTransaction().commit();
         } finally {
             entityManager.close();

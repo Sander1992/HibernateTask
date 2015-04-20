@@ -1,8 +1,8 @@
 package com.softserve.edu.hibernatetask.ui.menus;
 
-import com.softserve.edu.hibernatetask.ui.commandCore.CommandCollection;
-import com.softserve.edu.hibernatetask.ui.commandCore.IMenu;
-import com.softserve.edu.hibernatetask.ui.commandCore.Menu;
+import com.softserve.edu.hibernatetask.ui.commandcore.CommandCollection;
+import com.softserve.edu.hibernatetask.ui.commandcore.IMenu;
+import com.softserve.edu.hibernatetask.ui.commandcore.Menu;
 import com.softserve.edu.hibernatetask.ui.commands.dataBaseCommands.employeeCommands.GetAllEmploee;
 
 /**

@@ -1,4 +1,4 @@
-package com.softserve.edu.hibernatetask.ui.commandCore;
+package com.softserve.edu.hibernatetask.ui.commandcore;
 
 import java.util.Map;
 import java.util.Set;
