@@ -6,7 +6,7 @@ import com.softserve.edu.hibernatetask.ui.commandCore.Command;
 /**
  * Created by Sander on 20.04.2015.
  */
-public class GetAllEmploee implements Command{
+public class GetAllEmploeeCommand implements Command{
     @Override
     public void execute() {
         new MuseumEmployeeService().showAll();
