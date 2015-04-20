@@ -38,11 +38,8 @@ public final class MuseumEmployeeService extends MuseumBaseService<Employee> imp
         entityManager.getTransaction().begin();
         HallDAO hallDAO = new HallDataAccess();
         for (Hall e : entity.getHalls()) {
-            System.out.println(e.getEmployees());
             e.getEmployees().remove(entity);
-            hallDAO.merge(e);
         }
-
         employeeDAO.delete(entity);
         entityManager.getTransaction().commit();
     }

@@ -18,14 +18,14 @@ public class Hall {
 
     @OneToMany(cascade = {CascadeType.ALL}, orphanRemoval = true,
             mappedBy = "hall")
-    private Set<Exhibit> exhibits = new HashSet<>();
+    private Set<Exhibit> exhibits;
     ;
 
     @ManyToMany
     @JoinTable(name = "employee_hall",
             joinColumns = {@JoinColumn(nullable = false, name = "hall_id")},
             inverseJoinColumns = {@JoinColumn(nullable = false, name = "empl_id")})
-    private Set<Employee> employees = new HashSet<>();
+    private Set<Employee> employees;
 
     public Hall() {
     }

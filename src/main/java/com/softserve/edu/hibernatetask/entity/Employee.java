@@ -19,10 +19,10 @@ public class Employee {
     private String position;
 
     @OneToMany(cascade = {CascadeType.ALL}, mappedBy = "employee", orphanRemoval = true)
-    private Set<Excursion> excursions = new HashSet<>();
+    private Set<Excursion> excursions;
 
     @ManyToMany(mappedBy = "employees")
-    private Set<Hall> halls = new HashSet<>();
+    private Set<Hall> halls;
 
     public Employee() {
     }
