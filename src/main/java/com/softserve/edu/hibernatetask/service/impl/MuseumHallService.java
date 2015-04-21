@@ -21,9 +21,9 @@ public final class MuseumHallService extends MuseumBaseService<Hall> implements 
     public void showAll() {
         List<Hall> employees = new BaseDataAccess<Hall>(Hall.class).findAll();
         displayInfo("Halls of our museum");
-        displayColumns("Name", "Responsible staff");
+        displayColumns("Id", "Name", "Responsible staff");
         displayDelimiter();
-        employees.forEach(e -> displayColumns(e.getName(), e.getEmployees()));
+        employees.forEach(e -> displayColumns(e.getId(), e.getName(), e.getEmployees()));
         displayDelimiter();
     }
 }

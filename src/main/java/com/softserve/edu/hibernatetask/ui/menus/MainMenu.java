@@ -14,6 +14,7 @@ public class MainMenu implements IMenu {
         menuCollection.addTask(new EmployeeMenu());
         menuCollection.addTask(new ExcursionMenu());
         menuCollection.addTask((new ExhibitMenu()));
+        menuCollection.addTask(new HallMenu());
 
         new Menu(menuCollection).runApplication();
     }
