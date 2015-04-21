@@ -21,12 +21,14 @@ public final class Configurator {
         return entityManager;
     }
 
-    public static void load() {
-        new Thread(() -> new Configurator()).start();
-    }
-
     public static void closeSession() {
         entityManager.close();
         entityManagerFactory.close();
+    }
+
+    /*
+    For background loading sake.
+     */
+    public static void load() {
     }
 }
