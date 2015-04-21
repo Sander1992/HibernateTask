@@ -16,9 +16,9 @@ public final class MuseumExcursionService extends MuseumBaseService<Excursion> i
     public void showAll() {
         List<Excursion> employees = findAll();
         displayInfo("Excursions available");
-        displayColumns("Name", "Schedule", "Duration", "Responsible");
+        displayColumns("Id", "Name", "Schedule", "Duration", "Responsible");
         displayDelimiter();
-        employees.forEach(e -> displayColumns(e.getName(), e.getSchedule(),
+        employees.forEach(e -> displayColumns(e.getId(), e.getName(), e.getSchedule(),
                 e.getDuration(), e.getEmployee()));
         displayDelimiter();
     }

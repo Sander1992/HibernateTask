@@ -3,6 +3,9 @@ package com.softserve.edu.hibernatetask.ui.menus;
 import com.softserve.edu.hibernatetask.ui.commandCore.CommandCollection;
 import com.softserve.edu.hibernatetask.ui.commandCore.IMenu;
 import com.softserve.edu.hibernatetask.ui.commandCore.Menu;
+import com.softserve.edu.hibernatetask.ui.commands.dataBaseCommands.excursionCommands.CreateExcursionCommand;
+import com.softserve.edu.hibernatetask.ui.commands.dataBaseCommands.excursionCommands.DeleteExcursionCommand;
+import com.softserve.edu.hibernatetask.ui.commands.dataBaseCommands.excursionCommands.FindByNameExcursionCommand;
 import com.softserve.edu.hibernatetask.ui.commands.dataBaseCommands.excursionCommands.GetAllExcursionsCommand;
 
 /**
@@ -13,6 +16,9 @@ public class ExcursionMenu implements IMenu{
     public void execute()  {
         CommandCollection excursionCommandCollection = new CommandCollection();
         excursionCommandCollection.addTask(new GetAllExcursionsCommand());
+        excursionCommandCollection.addTask(new FindByNameExcursionCommand());
+        excursionCommandCollection.addTask(new DeleteExcursionCommand());
+        excursionCommandCollection.addTask(new CreateExcursionCommand());
 
         new Menu(excursionCommandCollection).runApplication();
     }

@@ -1,7 +1,40 @@
 package com.softserve.edu.hibernatetask.ui.commands.dataBaseCommands.excursionCommands;
 
+import com.softserve.edu.hibernatetask.entity.Employee;
+import com.softserve.edu.hibernatetask.entity.Excursion;
+import com.softserve.edu.hibernatetask.service.EmployeeService;
+import com.softserve.edu.hibernatetask.service.ExcursionService;
+import com.softserve.edu.hibernatetask.service.impl.MuseumEmployeeService;
+import com.softserve.edu.hibernatetask.service.impl.MuseumExcursionService;
+import com.softserve.edu.hibernatetask.ui.commandCore.Command;
+
+import java.util.Scanner;
+
 /**
  * Created by Sander on 20.04.2015.
  */
-public class CreateExcursionCommand {
+public class CreateExcursionCommand implements Command {
+
+    @Override
+    public void execute() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter excursion's name:");
+        String name = sc.nextLine();
+        System.out.println("Enter excursion's schedule");
+        String schedule = sc.nextLine();
+        System.out.println("Enter duration");
+        String duration = sc.nextLine();
+        System.out.println("Enter Responsible ID");
+        int respID = sc.nextInt();
+        EmployeeService employeeService = new MuseumEmployeeService();
+        Employee employee = employeeService.findById(respID);
+        Excursion excursion = new Excursion(name, schedule, duration, employee);
+        ExcursionService excursionService = new MuseumExcursionService();
+        excursionService.insert(excursion);
+    }
+
+    @Override
+    public String getName() {
+        return "Create excursion";
+    }
 }
