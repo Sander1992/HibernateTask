@@ -19,7 +19,7 @@ public class FindByIDEmployeeCommand implements Command{
         int employeeID = sc.nextInt();
         EmployeeService employeeService = new MuseumEmployeeService();
         Employee emp = employeeService.findById(employeeID);
-        PrettyOutput.displayInfo("All employees with id " + employeeID);
+        PrettyOutput.displayInfo("An employee with id " + employeeID);
         PrettyOutput.displayColumns("Name", "Position", "Salary");
         PrettyOutput.displayColumns(emp.getName(), emp.getPosition(), emp.getSalary());
         PrettyOutput.displayDelimiter();
