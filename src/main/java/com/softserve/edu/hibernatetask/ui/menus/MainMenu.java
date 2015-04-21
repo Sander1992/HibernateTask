@@ -1,8 +1,8 @@
 package com.softserve.edu.hibernatetask.ui.menus;
 
-import com.softserve.edu.hibernatetask.ui.commandcore.CommandCollection;
-import com.softserve.edu.hibernatetask.ui.commandcore.InterfaceMenu;
-import com.softserve.edu.hibernatetask.ui.commandcore.Menu;
+import com.softserve.edu.hibernatetask.ui.command_core.CommandCollection;
+import com.softserve.edu.hibernatetask.ui.command_core.InterfaceMenu;
+import com.softserve.edu.hibernatetask.ui.command_core.Menu;
 
 
 public class MainMenu implements InterfaceMenu {

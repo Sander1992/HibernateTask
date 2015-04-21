@@ -1,8 +1,8 @@
 package com.softserve.edu.hibernatetask.ui.menus;
 
-import com.softserve.edu.hibernatetask.ui.commandcore.CommandCollection;
-import com.softserve.edu.hibernatetask.ui.commandcore.InterfaceMenu;
-import com.softserve.edu.hibernatetask.ui.commandcore.Menu;
+import com.softserve.edu.hibernatetask.ui.command_core.CommandCollection;
+import com.softserve.edu.hibernatetask.ui.command_core.InterfaceMenu;
+import com.softserve.edu.hibernatetask.ui.command_core.Menu;
 import com.softserve.edu.hibernatetask.ui.commands.data_base_commands.excursion_commands.CreateExcursionCommand;
 import com.softserve.edu.hibernatetask.ui.commands.data_base_commands.excursion_commands.DeleteExcursionCommand;
 import com.softserve.edu.hibernatetask.ui.commands.data_base_commands.excursion_commands.FindByNameExcursionCommand;

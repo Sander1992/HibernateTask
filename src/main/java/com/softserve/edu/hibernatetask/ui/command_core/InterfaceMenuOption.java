@@ -1,9 +1,9 @@
-package com.softserve.edu.hibernatetask.ui.commandCore;
+package com.softserve.edu.hibernatetask.ui.command_core;
 
 /**
  * Interface that every menu option must implement
  */
-public interface IMenuOption {
+public interface InterfaceMenuOption {
     /**
      * Called when the menu option is selected
      */

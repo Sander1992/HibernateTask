@@ -6,7 +6,7 @@ import com.softserve.edu.hibernatetask.service.EmployeeService;
 import com.softserve.edu.hibernatetask.service.ExcursionService;
 import com.softserve.edu.hibernatetask.service.impl.MuseumEmployeeService;
 import com.softserve.edu.hibernatetask.service.impl.MuseumExcursionService;
-import com.softserve.edu.hibernatetask.ui.commandcore.Command;
+import com.softserve.edu.hibernatetask.ui.command_core.Command;
 
 import java.util.Scanner;
 

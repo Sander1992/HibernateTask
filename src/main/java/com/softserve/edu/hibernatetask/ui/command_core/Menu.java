@@ -1,4 +1,4 @@
-package com.softserve.edu.hibernatetask.ui.commandCore;
+package com.softserve.edu.hibernatetask.ui.command_core;
 
 import com.softserve.edu.hibernatetask.ui.commands.ExitMenuCommand;
 
@@ -19,7 +19,7 @@ public class Menu {
     }
 
     private void addExitMenuOptionIfAbsent() {
-        Iterator<Map.Entry<Integer, IMenuOption>> iterator = commandCollection.getCommands().iterator();
+        Iterator<Map.Entry<Integer, InterfaceMenuOption>> iterator = commandCollection.getCommands().iterator();
 
         boolean contains = false;
 
@@ -37,7 +37,7 @@ public class Menu {
 
     private void printEntryMessages() {
         StringBuilder messageBuilder = new StringBuilder();
-        for (Map.Entry<Integer, IMenuOption> pair : commandCollection.getCommands()) {
+        for (Map.Entry<Integer, InterfaceMenuOption> pair : commandCollection.getCommands()) {
             messageBuilder.append(pair.getKey());
             messageBuilder.append(": ");
             messageBuilder.append(pair.getValue().getName());
@@ -57,7 +57,7 @@ public class Menu {
             int programType = scanner.nextInt();
 
             if (programType > MIN_MENU_INDEX && programType < (commandCollection.getSize() + 1)) {
-                IMenuOption menuOption = commandCollection.getByIndex(programType);
+                InterfaceMenuOption menuOption = commandCollection.getByIndex(programType);
 
                 if (menuOption instanceof ExitMenuCommand) {
                     break;

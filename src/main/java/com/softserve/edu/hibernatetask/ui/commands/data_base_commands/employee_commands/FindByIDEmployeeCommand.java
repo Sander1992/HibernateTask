@@ -3,7 +3,7 @@ package com.softserve.edu.hibernatetask.ui.commands.data_base_commands.employee_
 import com.softserve.edu.hibernatetask.entity.Employee;
 import com.softserve.edu.hibernatetask.service.EmployeeService;
 import com.softserve.edu.hibernatetask.service.impl.MuseumEmployeeService;
-import com.softserve.edu.hibernatetask.ui.commandcore.Command;
+import com.softserve.edu.hibernatetask.ui.command_core.Command;
 import com.softserve.edu.hibernatetask.utils.PrettyOutput;
 
 import java.util.Scanner;
