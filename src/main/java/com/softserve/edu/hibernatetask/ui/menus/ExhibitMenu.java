@@ -1,17 +1,15 @@
 package com.softserve.edu.hibernatetask.ui.menus;
 
-import com.softserve.edu.hibernatetask.ui.commandCore.CommandCollection;
-import com.softserve.edu.hibernatetask.ui.commandCore.IMenu;
-import com.softserve.edu.hibernatetask.ui.commandCore.Menu;
-import com.softserve.edu.hibernatetask.ui.commands.dataBaseCommands.exhibitCommands.CreateExhibitCommand;
-import com.softserve.edu.hibernatetask.ui.commands.dataBaseCommands.exhibitCommands.DeleteExhibitCommand;
-import com.softserve.edu.hibernatetask.ui.commands.dataBaseCommands.exhibitCommands.FindByNameExhibitCommand;
-import com.softserve.edu.hibernatetask.ui.commands.dataBaseCommands.exhibitCommands.GetAllExhibitsCommand;
+import com.softserve.edu.hibernatetask.ui.commandcore.CommandCollection;
+import com.softserve.edu.hibernatetask.ui.commandcore.InterfaceMenu;
+import com.softserve.edu.hibernatetask.ui.commandcore.Menu;
+import com.softserve.edu.hibernatetask.ui.commands.data_base_commands.exhibit_commands.CreateExhibitCommand;
+import com.softserve.edu.hibernatetask.ui.commands.data_base_commands.exhibit_commands.DeleteExhibitCommand;
+import com.softserve.edu.hibernatetask.ui.commands.data_base_commands.exhibit_commands.FindByNameExhibitCommand;
+import com.softserve.edu.hibernatetask.ui.commands.data_base_commands.exhibit_commands.GetAllExhibitsCommand;
 
-/**
- * Created by Sander on 20.04.2015.
- */
-public class ExhibitMenu implements IMenu{
+
+public class ExhibitMenu implements InterfaceMenu {
 
     @Override
     public void execute()  {

@@ -1,14 +1,12 @@
 package com.softserve.edu.hibernatetask.ui.menus;
 
-import com.softserve.edu.hibernatetask.ui.commandCore.CommandCollection;
-import com.softserve.edu.hibernatetask.ui.commandCore.IMenu;
-import com.softserve.edu.hibernatetask.ui.commandCore.Menu;
-import com.softserve.edu.hibernatetask.ui.commands.dataBaseCommands.employeeCommands.*;
+import com.softserve.edu.hibernatetask.ui.commandcore.CommandCollection;
+import com.softserve.edu.hibernatetask.ui.commandcore.InterfaceMenu;
+import com.softserve.edu.hibernatetask.ui.commandcore.Menu;
+import com.softserve.edu.hibernatetask.ui.commands.data_base_commands.employee_commands.*;
 
-/**
- * Created by Sander on 20.04.2015.
- */
-public class EmployeeMenu implements IMenu {
+
+public class EmployeeMenu implements InterfaceMenu {
         @Override
         public void execute()  {
             CommandCollection employeeCommandCollection = new CommandCollection();

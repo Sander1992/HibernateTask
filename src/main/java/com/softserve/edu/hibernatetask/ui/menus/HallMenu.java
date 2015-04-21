@@ -1,17 +1,15 @@
 package com.softserve.edu.hibernatetask.ui.menus;
 
-import com.softserve.edu.hibernatetask.ui.commandCore.CommandCollection;
-import com.softserve.edu.hibernatetask.ui.commandCore.IMenu;
-import com.softserve.edu.hibernatetask.ui.commandCore.Menu;
-import com.softserve.edu.hibernatetask.ui.commands.dataBaseCommands.hallCommands.CreateHallCommand;
-import com.softserve.edu.hibernatetask.ui.commands.dataBaseCommands.hallCommands.DeleteHallCommand;
-import com.softserve.edu.hibernatetask.ui.commands.dataBaseCommands.hallCommands.FindByIDHallCommand;
-import com.softserve.edu.hibernatetask.ui.commands.dataBaseCommands.hallCommands.GetAllHallsCommand;
+import com.softserve.edu.hibernatetask.ui.commandcore.CommandCollection;
+import com.softserve.edu.hibernatetask.ui.commandcore.InterfaceMenu;
+import com.softserve.edu.hibernatetask.ui.commandcore.Menu;
+import com.softserve.edu.hibernatetask.ui.commands.data_base_commands.hall_commands.CreateHallCommand;
+import com.softserve.edu.hibernatetask.ui.commands.data_base_commands.hall_commands.DeleteHallCommand;
+import com.softserve.edu.hibernatetask.ui.commands.data_base_commands.hall_commands.FindByIDHallCommand;
+import com.softserve.edu.hibernatetask.ui.commands.data_base_commands.hall_commands.GetAllHallsCommand;
 
-/**
- * Created by Sander on 20.04.2015.
- */
-public class HallMenu implements IMenu {
+
+public class HallMenu implements InterfaceMenu {
 
     @Override
     public void execute()  {

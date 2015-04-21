@@ -1,4 +1,4 @@
-package com.softserve.edu.hibernatetask.ui.commands.dataBaseCommands.exhibitCommands;
+package com.softserve.edu.hibernatetask.ui.commands.data_base_commands.exhibit_commands;
 
 import com.softserve.edu.hibernatetask.entity.Exhibit;
 import com.softserve.edu.hibernatetask.entity.Hall;
@@ -6,15 +6,13 @@ import com.softserve.edu.hibernatetask.service.ExhibitService;
 import com.softserve.edu.hibernatetask.service.HallService;
 import com.softserve.edu.hibernatetask.service.impl.MuseumExhibitService;
 import com.softserve.edu.hibernatetask.service.impl.MuseumHallService;
-import com.softserve.edu.hibernatetask.ui.commandCore.Command;
+import com.softserve.edu.hibernatetask.ui.commandcore.Command;
 import com.softserve.edu.hibernatetask.utils.DateHandler;
 
 import java.util.Date;
 import java.util.Scanner;
 
-/**
- * Created by Sander on 21.04.2015.
- */
+
 public class CreateExhibitCommand implements Command{
     @Override
     public void execute() {

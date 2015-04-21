@@ -1,9 +1,9 @@
-package com.softserve.edu.hibernatetask.ui.commands.dataBaseCommands.exhibitCommands;
+package com.softserve.edu.hibernatetask.ui.commands.data_base_commands.exhibit_commands;
 
 import com.softserve.edu.hibernatetask.entity.Exhibit;
 import com.softserve.edu.hibernatetask.service.ExhibitService;
 import com.softserve.edu.hibernatetask.service.impl.MuseumExhibitService;
-import com.softserve.edu.hibernatetask.ui.commandCore.Command;
+import com.softserve.edu.hibernatetask.ui.commandcore.Command;
 import com.softserve.edu.hibernatetask.utils.PrettyOutput;
 
 import java.util.List;
@@ -11,9 +11,7 @@ import java.util.Scanner;
 
 import static com.softserve.edu.hibernatetask.utils.PrettyOutput.displayColumns;
 
-/**
- * Created by Sander on 21.04.2015.
- */
+
 public class FindByNameExhibitCommand implements Command{
 
     @Override

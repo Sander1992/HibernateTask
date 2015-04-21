@@ -1,11 +1,9 @@
-package com.softserve.edu.hibernatetask.ui.commands.dataBaseCommands.excursionCommands;
+package com.softserve.edu.hibernatetask.ui.commands.data_base_commands.excursion_commands;
 
 import com.softserve.edu.hibernatetask.service.impl.MuseumExcursionService;
-import com.softserve.edu.hibernatetask.ui.commandCore.Command;
+import com.softserve.edu.hibernatetask.ui.commandcore.Command;
 
-/**
- * Created by Sander on 20.04.2015.
- */
+
 public class GetAllExcursionsCommand implements Command{
     @Override
     public void execute() {

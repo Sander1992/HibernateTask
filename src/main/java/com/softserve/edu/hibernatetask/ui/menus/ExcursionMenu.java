@@ -1,17 +1,15 @@
 package com.softserve.edu.hibernatetask.ui.menus;
 
-import com.softserve.edu.hibernatetask.ui.commandCore.CommandCollection;
-import com.softserve.edu.hibernatetask.ui.commandCore.IMenu;
-import com.softserve.edu.hibernatetask.ui.commandCore.Menu;
-import com.softserve.edu.hibernatetask.ui.commands.dataBaseCommands.excursionCommands.CreateExcursionCommand;
-import com.softserve.edu.hibernatetask.ui.commands.dataBaseCommands.excursionCommands.DeleteExcursionCommand;
-import com.softserve.edu.hibernatetask.ui.commands.dataBaseCommands.excursionCommands.FindByNameExcursionCommand;
-import com.softserve.edu.hibernatetask.ui.commands.dataBaseCommands.excursionCommands.GetAllExcursionsCommand;
+import com.softserve.edu.hibernatetask.ui.commandcore.CommandCollection;
+import com.softserve.edu.hibernatetask.ui.commandcore.InterfaceMenu;
+import com.softserve.edu.hibernatetask.ui.commandcore.Menu;
+import com.softserve.edu.hibernatetask.ui.commands.data_base_commands.excursion_commands.CreateExcursionCommand;
+import com.softserve.edu.hibernatetask.ui.commands.data_base_commands.excursion_commands.DeleteExcursionCommand;
+import com.softserve.edu.hibernatetask.ui.commands.data_base_commands.excursion_commands.FindByNameExcursionCommand;
+import com.softserve.edu.hibernatetask.ui.commands.data_base_commands.excursion_commands.GetAllExcursionsCommand;
 
-/**
- * Created by Sander on 20.04.2015.
- */
-public class ExcursionMenu implements IMenu{
+
+public class ExcursionMenu implements InterfaceMenu {
     @Override
     public void execute()  {
         CommandCollection excursionCommandCollection = new CommandCollection();

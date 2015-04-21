@@ -1,9 +1,9 @@
-package com.softserve.edu.hibernatetask.ui.commands.dataBaseCommands.excursionCommands;
+package com.softserve.edu.hibernatetask.ui.commands.data_base_commands.excursion_commands;
 
 import com.softserve.edu.hibernatetask.entity.Excursion;
 import com.softserve.edu.hibernatetask.service.ExcursionService;
 import com.softserve.edu.hibernatetask.service.impl.MuseumExcursionService;
-import com.softserve.edu.hibernatetask.ui.commandCore.Command;
+import com.softserve.edu.hibernatetask.ui.commandcore.Command;
 import com.softserve.edu.hibernatetask.utils.PrettyOutput;
 
 import java.util.List;
@@ -11,9 +11,7 @@ import java.util.Scanner;
 
 import static com.softserve.edu.hibernatetask.utils.PrettyOutput.displayColumns;
 
-/**
- * Created by Sander on 20.04.2015.
- */
+
 public class FindByNameExcursionCommand implements Command{
     @Override
     public void execute() {

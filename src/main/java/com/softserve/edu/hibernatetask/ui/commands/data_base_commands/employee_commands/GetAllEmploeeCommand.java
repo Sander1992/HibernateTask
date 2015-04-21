@@ -1,11 +1,8 @@
-package com.softserve.edu.hibernatetask.ui.commands.dataBaseCommands.employeeCommands;
+package com.softserve.edu.hibernatetask.ui.commands.data_base_commands.employee_commands;
 
 import com.softserve.edu.hibernatetask.service.impl.MuseumEmployeeService;
-import com.softserve.edu.hibernatetask.ui.commandCore.Command;
+import com.softserve.edu.hibernatetask.ui.commandcore.Command;
 
-/**
- * Created by Sander on 20.04.2015.
- */
 public class GetAllEmploeeCommand implements Command{
     @Override
     public void execute() {

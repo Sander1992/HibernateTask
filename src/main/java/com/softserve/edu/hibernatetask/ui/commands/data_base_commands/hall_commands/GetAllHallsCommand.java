@@ -1,11 +1,9 @@
-package com.softserve.edu.hibernatetask.ui.commands.dataBaseCommands.hallCommands;
+package com.softserve.edu.hibernatetask.ui.commands.data_base_commands.hall_commands;
 
 import com.softserve.edu.hibernatetask.service.impl.MuseumHallService;
-import com.softserve.edu.hibernatetask.ui.commandCore.Command;
+import com.softserve.edu.hibernatetask.ui.commandcore.Command;
 
-/**
- * Created by Sander on 21.04.2015.
- */
+
 public class GetAllHallsCommand implements Command {
 
     @Override

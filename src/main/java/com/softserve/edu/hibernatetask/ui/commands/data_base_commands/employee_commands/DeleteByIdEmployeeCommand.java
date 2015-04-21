@@ -1,15 +1,12 @@
-package com.softserve.edu.hibernatetask.ui.commands.dataBaseCommands.employeeCommands;
+package com.softserve.edu.hibernatetask.ui.commands.data_base_commands.employee_commands;
 
 import com.softserve.edu.hibernatetask.entity.Employee;
 import com.softserve.edu.hibernatetask.service.EmployeeService;
 import com.softserve.edu.hibernatetask.service.impl.MuseumEmployeeService;
-import com.softserve.edu.hibernatetask.ui.commandCore.Command;
+import com.softserve.edu.hibernatetask.ui.commandcore.Command;
 
 import java.util.Scanner;
 
-/**
- * Created by Sander on 20.04.2015.
- */
 public class DeleteByIdEmployeeCommand implements Command{
     @Override
     public void execute() {
