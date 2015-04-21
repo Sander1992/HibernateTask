@@ -49,7 +49,7 @@ public final class TableFiller {
         Exhibit monaLisa = new Exhibit("Mona Lisa", DateHandler.parseDate("28.04.2015"), "Painting",
                 "Leonardo da Vinci", "Surrealism", hall);
         Exhibit dino = new Exhibit("Dino", DateHandler.parseDate("18.03.2016"), "Bounds",
-                "Nature", "Realism", hall);
+                "Nature", null, hall);
         ExhibitService exhibitService = new MuseumExhibitService();
         exhibitService.insert(monaLisa);
         exhibitService.insert(dino);

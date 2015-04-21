@@ -17,9 +17,9 @@ public final class MuseumExhibitService extends MuseumBaseService<Exhibit> imple
     public void showAll() {
         List<Exhibit> employees = findAll();
         displayInfo("Exhibits of our museum");
-        displayColumns("Name", "Date", "Hall", "Author", "Material", "Technic");
+        displayColumns("ID", "Name", "Date", "Hall", "Author", "Material", "Technic");
         displayDelimiter();
-        employees.forEach(e -> displayColumns(e.getName(), DateHandler.getPrettyDate(e.getDate()),
+        employees.forEach(e -> displayColumns(e.getId(), e.getName(), DateHandler.getPrettyDate(e.getDate()),
                 e.getHall(), e.getAuthor(), e.getMaterial(), e.getTechnic()));
         displayDelimiter();
     }
