@@ -8,7 +8,6 @@ import com.softserve.edu.hibernatetask.ui.commandcore.Command;
 import java.util.List;
 import java.util.Scanner;
 
-
 public class DeleteByNameEmployeeCommand implements Command {
     @Override
     public void execute() {
@@ -17,7 +16,7 @@ public class DeleteByNameEmployeeCommand implements Command {
         String str = sc.nextLine();
         EmployeeService employeeService = new MuseumEmployeeService();
         List<Employee> emp = employeeService.findByName(str);
-        for(Employee e: emp){
+        for (Employee e : emp) {
             employeeService.delete(e);
         }
     }
