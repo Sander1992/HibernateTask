@@ -1,4 +1,4 @@
-package com.softserve.edu.hibernatetask.ui.command_core;
+package com.softserve.edu.hibernatetask.ui.commandcore;
 
 import com.softserve.edu.hibernatetask.ui.commands.ExitMenuCommand;
 
@@ -67,7 +67,7 @@ public class Menu {
             } else {
                 System.out.println("insert correct index");
             }
-        }  // while
+        }
     }
 
     public void setCommandCollection(CommandCollection commandCollection) {

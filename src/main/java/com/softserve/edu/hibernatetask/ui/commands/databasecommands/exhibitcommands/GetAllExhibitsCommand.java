@@ -1,7 +1,7 @@
-package com.softserve.edu.hibernatetask.ui.commands.data_base_commands.exhibit_commands;
+package com.softserve.edu.hibernatetask.ui.commands.databasecommands.exhibitcommands;
 
 import com.softserve.edu.hibernatetask.service.impl.MuseumExhibitService;
-import com.softserve.edu.hibernatetask.ui.command_core.Command;
+import com.softserve.edu.hibernatetask.ui.commandcore.Command;
 
 
 public class GetAllExhibitsCommand implements Command{

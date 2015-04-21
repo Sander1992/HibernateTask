@@ -1,12 +1,12 @@
 package com.softserve.edu.hibernatetask.ui.menus;
 
-import com.softserve.edu.hibernatetask.ui.command_core.CommandCollection;
-import com.softserve.edu.hibernatetask.ui.command_core.InterfaceMenu;
-import com.softserve.edu.hibernatetask.ui.command_core.Menu;
-import com.softserve.edu.hibernatetask.ui.commands.data_base_commands.hall_commands.CreateHallCommand;
-import com.softserve.edu.hibernatetask.ui.commands.data_base_commands.hall_commands.DeleteHallCommand;
-import com.softserve.edu.hibernatetask.ui.commands.data_base_commands.hall_commands.FindByIDHallCommand;
-import com.softserve.edu.hibernatetask.ui.commands.data_base_commands.hall_commands.GetAllHallsCommand;
+import com.softserve.edu.hibernatetask.ui.commandcore.CommandCollection;
+import com.softserve.edu.hibernatetask.ui.commandcore.InterfaceMenu;
+import com.softserve.edu.hibernatetask.ui.commandcore.Menu;
+import com.softserve.edu.hibernatetask.ui.commands.databasecommands.hallcommands.CreateHallCommand;
+import com.softserve.edu.hibernatetask.ui.commands.databasecommands.hallcommands.DeleteHallCommand;
+import com.softserve.edu.hibernatetask.ui.commands.databasecommands.hallcommands.FindByIDHallCommand;
+import com.softserve.edu.hibernatetask.ui.commands.databasecommands.hallcommands.GetAllHallsCommand;
 
 
 public class HallMenu implements InterfaceMenu {

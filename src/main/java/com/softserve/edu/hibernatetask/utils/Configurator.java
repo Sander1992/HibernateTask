@@ -4,7 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-public class Configurator {
+public final class Configurator {
     private static final EntityManagerFactory entityManagerFactory = buildEntityManagerFactory();
     private static final EntityManager entityManager = entityManagerFactory.createEntityManager();
 
@@ -19,6 +19,10 @@ public class Configurator {
 
     public static EntityManager getEntityManager() {
         return entityManager;
+    }
+
+    public static void load() {
+        new Thread(() -> new Configurator()).start();
     }
 
     public static void closeSession() {

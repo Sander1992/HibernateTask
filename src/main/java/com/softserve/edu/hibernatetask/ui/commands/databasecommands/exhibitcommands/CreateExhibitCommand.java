@@ -1,4 +1,4 @@
-package com.softserve.edu.hibernatetask.ui.commands.data_base_commands.exhibit_commands;
+package com.softserve.edu.hibernatetask.ui.commands.databasecommands.exhibitcommands;
 
 import com.softserve.edu.hibernatetask.entity.Exhibit;
 import com.softserve.edu.hibernatetask.entity.Hall;
@@ -6,7 +6,7 @@ import com.softserve.edu.hibernatetask.service.ExhibitService;
 import com.softserve.edu.hibernatetask.service.HallService;
 import com.softserve.edu.hibernatetask.service.impl.MuseumExhibitService;
 import com.softserve.edu.hibernatetask.service.impl.MuseumHallService;
-import com.softserve.edu.hibernatetask.ui.command_core.Command;
+import com.softserve.edu.hibernatetask.ui.commandcore.Command;
 import com.softserve.edu.hibernatetask.utils.DateHandler;
 
 import java.util.Date;

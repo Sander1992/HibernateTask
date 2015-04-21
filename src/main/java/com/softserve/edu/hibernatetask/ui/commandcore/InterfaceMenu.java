@@ -1,4 +1,4 @@
-package com.softserve.edu.hibernatetask.ui.command_core;
+package com.softserve.edu.hibernatetask.ui.commandcore;
 
 
 /**

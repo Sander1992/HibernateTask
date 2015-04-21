@@ -5,7 +5,6 @@ import com.softserve.edu.hibernatetask.dao.HallDAO;
 import com.softserve.edu.hibernatetask.dao.impl.EmployeeDataAccess;
 import com.softserve.edu.hibernatetask.dao.impl.HallDataAccess;
 import com.softserve.edu.hibernatetask.entity.Employee;
-import com.softserve.edu.hibernatetask.entity.Hall;
 import com.softserve.edu.hibernatetask.service.EmployeeService;
 import com.softserve.edu.hibernatetask.utils.Configurator;
 
@@ -37,9 +36,7 @@ public final class MuseumEmployeeService extends MuseumBaseService<Employee> imp
         employeeDAO.update(entity);
         entityManager.getTransaction().begin();
         HallDAO hallDAO = new HallDataAccess();
-        for (Hall e : entity.getHalls()) {
-            e.getEmployees().remove(entity);
-        }
+        entity.getHalls().forEach(e -> e.getEmployees().remove(entity));
         employeeDAO.delete(entity);
         entityManager.getTransaction().commit();
     }

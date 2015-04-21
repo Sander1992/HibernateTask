@@ -4,7 +4,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public final class PrettyOutput {
-    private static final int WIDTH = 20;
+    private static final int WIDTH = 30;
     private static final int MAX_NUMBER_OF_FIELDS = 7;
 
     public static void displayDelimiter() {

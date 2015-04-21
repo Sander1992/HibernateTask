@@ -1,15 +1,13 @@
-package com.softserve.edu.hibernatetask.ui.commands.data_base_commands.employee_commands;
+package com.softserve.edu.hibernatetask.ui.commands.databasecommands.employeecommands;
 
 import com.softserve.edu.hibernatetask.entity.Employee;
 import com.softserve.edu.hibernatetask.service.EmployeeService;
 import com.softserve.edu.hibernatetask.service.impl.MuseumEmployeeService;
-import com.softserve.edu.hibernatetask.ui.command_core.Command;
-import com.softserve.edu.hibernatetask.utils.PrettyOutput;
+import com.softserve.edu.hibernatetask.ui.commandcore.Command;
 
 import java.util.Scanner;
 
-
-public class FindByIDEmployeeCommand implements Command{
+public class DeleteByIdEmployeeCommand implements Command{
     @Override
     public void execute() {
         Scanner sc = new Scanner(System.in);
@@ -17,16 +15,12 @@ public class FindByIDEmployeeCommand implements Command{
         int employeeID = sc.nextInt();
         EmployeeService employeeService = new MuseumEmployeeService();
         Employee emp = employeeService.findById(employeeID);
-        PrettyOutput.displayInfo("An employee with id " + employeeID);
-        PrettyOutput.displayColumns("Name", "Position", "Salary");
-        PrettyOutput.displayColumns(emp.getName(), emp.getPosition(), emp.getSalary());
-        PrettyOutput.displayDelimiter();
+        employeeService.delete(emp);
+
     }
 
     @Override
     public String getName() {
-        return "Find employee (by ID)";
+        return "Delete employee (by ID)";
     }
 }
-
-
